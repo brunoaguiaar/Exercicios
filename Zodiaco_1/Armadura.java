@@ -1,8 +1,11 @@
 public class Armadura {
     private String constelacao;
-    
-    public Armadura(String a) {
-        this.constelacao = a;
+    private Categoria categoria;
+	
+    public Armadura(String constelacao, Categoria categoria) {
+        this.constelacao = constelacao;
+		this.categoria  = categoria;
     }
     
 }
+
