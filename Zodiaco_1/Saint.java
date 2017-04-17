@@ -7,14 +7,24 @@ public class Saint {
     private double vida = 100.0;
     private int sentidosDespertados = 5;
     
-    public Saint(String nome, Armadura armadura) {
+    public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
         
+        /*s emudar os sentidos despertados para 4
+        int valorCategoria = this.armadura.getCategoria().getValor();
+        this.sentidosDespertados += valorCategoria;
+        */
+                
         if (this.armadura.getCatArmadura() == Categoria.PRATA) {
             this.sentidosDespertados = 6;
         } else if (this.armadura.getCatArmadura() == Categoria.OURO){
             this.sentidosDespertados = 7;
+            String constelacao = armadura.getConstelacao();
+            if (!constelacao.equals("Leao") && !constelacao.equals("Touro")){
+                //dar erro
+                throw new Exception("Constelação inválida");
+            }
         } else {
             this.sentidosDespertados = 5;
         }
