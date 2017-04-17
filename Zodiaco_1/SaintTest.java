@@ -63,6 +63,12 @@ public class SaintTest {
         bruno.perderVida(-1000);
         assertEquals(1100, bruno.getVida(), 0.01);
     }
+    
+    @Test
+    public void aoCriarOSaintEleNasceCom5SentidosDespertados() {
+         Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.OURO));
+         assertEquals(5, bruno.getSentidosDespertados());
+    }
 }
 
 
