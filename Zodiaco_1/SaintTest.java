@@ -18,7 +18,7 @@ public class SaintTest {
     }
     @Test
     public void naoVestirArmaduraDeixaArmaduraNaoVestida()throws Exception{
-        Saint hyoga = new Saint("Hyoga", new Armadura("Touro", Categoria.BRONZE));
+        BronzeSaint hyoga = new BronzeSaint("Hyoga", new Armadura("Touro", Categoria.BRONZE));
         assertEquals(false, hyoga.getArmaduraVestida());
     }
     @Test
@@ -66,7 +66,7 @@ public class SaintTest {
     
     @Test
     public void aoCriarOSaintBronzeEleNasceCom5SentidosDespertados()throws Exception {
-         Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.BRONZE));
+         BronzeSaint bruno = new BronzeSaint("Bruno", new Armadura("Leao", Categoria.BRONZE));
          assertEquals(5, bruno.getSentidosDespertados());
     }
     
