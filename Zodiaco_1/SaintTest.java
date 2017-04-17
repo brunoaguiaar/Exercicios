@@ -65,9 +65,21 @@ public class SaintTest {
     }
     
     @Test
-    public void aoCriarOSaintEleNasceCom5SentidosDespertados() {
-         Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.OURO));
+    public void aoCriarOSaintBronzeEleNasceCom5SentidosDespertados() {
+         Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.BRONZE));
          assertEquals(5, bruno.getSentidosDespertados());
+    }
+    
+    @Test
+    public void aoCriarOSaintPrataEleNasceCom6SentidosDespertados() {
+         Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.PRATA));
+         assertEquals(6, bruno.getSentidosDespertados());
+    }
+    
+    @Test
+    public void aoCriarOSaintOuroEleNasceCom7SentidosDespertados() {
+         Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.OURO));
+         assertEquals(7, bruno.getSentidosDespertados());
     }
 }
 
