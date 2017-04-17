@@ -7,9 +7,9 @@ import org.junit.Test;
 
 public class BatalhaTest {
     @Test
-    public void categoriaDesafiadoMaiorQueDefafiante(){
+    public void categoriaDesafiadoMaiorQueDefafiante()throws Exception{
         Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.OURO));
-        Saint shaka = new Saint("Shaka", new Armadura("Virgem", Categoria.PRATA));
+        Saint shaka = new Saint("Shaka", new Armadura("Touro", Categoria.PRATA));
         Batalha batalha = new Batalha(bruno, shaka);
         
         batalha.iniciar();
@@ -19,9 +19,9 @@ public class BatalhaTest {
     }
     
     @Test
-    public void categoriaDesafianteMaiorQueDefafiado(){
+    public void categoriaDesafianteMaiorQueDefafiado() throws Exception{
         Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.BRONZE));
-        Saint shaka = new Saint("Shaka", new Armadura("Virgem", Categoria.PRATA));
+        Saint shaka = new Saint("Shaka", new Armadura("Touro", Categoria.PRATA));
         Batalha batalha = new Batalha(bruno, shaka);
         
         batalha.iniciar();
@@ -31,9 +31,9 @@ public class BatalhaTest {
     }
     
     @Test
-    public void categoriaDesafianteIgualODefafiado(){
+    public void categoriaDesafianteIgualODefafiado()throws Exception{
         Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.PRATA));
-        Saint shaka = new Saint("Shaka", new Armadura("Virgem", Categoria.PRATA));
+        Saint shaka = new Saint("Shaka", new Armadura("Touro", Categoria.PRATA));
         Batalha batalha = new Batalha(bruno, shaka);
         
         batalha.iniciar();
