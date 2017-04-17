@@ -40,10 +40,8 @@ public class Saint {
         return this.vida;
     }
     
-    public double getPerderVida(){
-        vida = vida - 10.0;
-        return vida;
+    public void perderVida(double dano){
+        this.vida -= dano;
     }
-    
-    
+
 }

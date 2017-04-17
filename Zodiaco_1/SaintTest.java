@@ -36,6 +36,33 @@ public class SaintTest {
         Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.OURO));
         assertEquals(100.0, bruno.getVida(), 0.01);
     }
+    @Test
+    public void testeDePerderVidaComValor10(){
+        Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.OURO));
+        bruno.perderVida(10);
+        assertEquals(90.0, bruno.getVida(), 0.01);
+    }
+    
+    @Test
+    public void testeDePerderVidaComValor100(){
+        Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.OURO));
+        bruno.perderVida(100);
+        assertEquals(0, bruno.getVida(), 0.01);
+    }
+    
+    @Test
+    public void testeDePerderVidaComValor1000(){
+        Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.OURO));
+        bruno.perderVida(1000);
+        assertEquals(-900, bruno.getVida(), 0.01);
+    }
+    
+    @Test
+    public void testeDePerderVidaComValorMenos1000(){
+        Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.OURO));
+        bruno.perderVida(-1000);
+        assertEquals(1100, bruno.getVida(), 0.01);
+    }
 }
 
 
