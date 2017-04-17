@@ -31,5 +31,22 @@ public class SaintTest {
         Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.OURO));
         assertEquals(Status.VIVO, bruno.getStatus());
     }
+    @Test
+    public void vidaInicialDeveSer100() {
+        Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.OURO));
+        assertEquals(100.0, bruno.getVida(), 0.01);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
