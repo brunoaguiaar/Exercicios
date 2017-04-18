@@ -46,10 +46,14 @@ public class Saint {
     }
 
     public void perderVida(double dano) throws Exception{
+        if (dano < 0){
+            throw new InvalidParameterException("dano");
+        }
+        
         if ((getVida() > 0) && (getVida() <= 100)){
             if ((dano > 0) && (dano > getVida())){
                 status = Status.MORTO;
-                vida = 0;
+                this.vida = 0;
             } else if ((dano > 0) && (dano < getVida())){
                 this.vida -= dano;
             }
@@ -63,19 +67,20 @@ public class Saint {
         return this.sentidosDespertados;
     }
     
-    public ArrayList<Golpe> getGolpes() {
-        return this.armadura.getConstelacao().getGolpes();
+    private  Constelacao getConstelacao(){
+        return this.armadura.getConstelacao();
+    }
+    public Golpe[] getGolpes() {
+        return getConstelacao().getGolpes();
     }
     
     public void aprenderGolpe(Golpe golpe) {
-        this.armadura.getConstelacao().adicionarGolpe(golpe);
+        getConstelacao().adicionarGolpe(golpe);
     }
     
     public Golpe getProximoGolpe() {
-        if(this.golpeAtual >= getGolpes().size()) {
-            this.golpeAtual = 0;
-        }
-        return getGolpes().get(golpeAtual++);
+        Golpe g = getConstelacao().getGolpes()[golpeAtual++ % getGolpes().length];
+        return g;
     }
 
 }
