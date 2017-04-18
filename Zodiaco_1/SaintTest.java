@@ -44,17 +44,17 @@ public class SaintTest {
     }
     
     @Test
-    public void testeDePerderVidaComValor100()throws Exception{
+    public void testeDePerderVidaComValor90()throws Exception{
         GoldSaint bruno = new GoldSaint("Bruno", new Armadura("Leao", Categoria.OURO));
-        bruno.perderVida(100);
-        assertEquals(0, bruno.getVida(), 0.01);
+        bruno.perderVida(90);
+        assertEquals(10, bruno.getVida(), 0.01);
     }
     
     @Test
     public void testeDePerderVidaComValor1000()throws Exception{
         GoldSaint bruno = new GoldSaint("Bruno", new Armadura("Leao", Categoria.OURO));
         bruno.perderVida(1000);
-        assertEquals(-900, bruno.getVida(), 0.01);
+        assertEquals(Status.MORTO, bruno.getStatus());
     }
     
     @Test
@@ -80,6 +80,13 @@ public class SaintTest {
     public void aoCriarOSaintOuroEleNasceCom7SentidosDespertados() throws Exception{
          GoldSaint bruno = new GoldSaint("Bruno", new Armadura("Leao", Categoria.OURO));
          assertEquals(7, bruno.getSentidosDespertados());
+    }
+    
+    @Test
+    public void aoFicarComVida0StatusMudaParaMorto() throws Exception{
+        GoldSaint bruno = new GoldSaint("Bruno", new Armadura("Leao", Categoria.OURO));
+        bruno.perderVida(101);
+        assertEquals(Status.MORTO, bruno.getStatus());
     }
 }
 
