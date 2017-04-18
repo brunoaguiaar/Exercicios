@@ -8,8 +8,8 @@ import org.junit.Test;
 public class BatalhaTest {
     @Test
     public void categoriaDesafiadoMaiorQueDefafiante()throws Exception{
-        Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.OURO));
-        Saint shaka = new Saint("Shaka", new Armadura("Touro", Categoria.PRATA));
+        Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.OURO));
+        Saint shaka = new Saint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
         Batalha batalha = new Batalha(bruno, shaka);
         
         batalha.iniciar();
@@ -20,8 +20,8 @@ public class BatalhaTest {
     
     @Test
     public void categoriaDesafianteMaiorQueDefafiado() throws Exception{
-        Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.BRONZE));
-        Saint shaka = new Saint("Shaka", new Armadura("Touro", Categoria.PRATA));
+        Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.BRONZE));
+        Saint shaka = new Saint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
         Batalha batalha = new Batalha(bruno, shaka);
         
         batalha.iniciar();
@@ -32,8 +32,8 @@ public class BatalhaTest {
     
     @Test
     public void categoriaDesafianteIgualODefafiado()throws Exception{
-        Saint bruno = new Saint("Bruno", new Armadura("Leao", Categoria.PRATA));
-        Saint shaka = new Saint("Shaka", new Armadura("Touro", Categoria.PRATA));
+        Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.PRATA));
+        Saint shaka = new Saint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
         Batalha batalha = new Batalha(bruno, shaka);
         
         batalha.iniciar();
