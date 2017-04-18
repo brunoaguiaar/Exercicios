@@ -6,7 +6,7 @@ public class Batalha {
         this.desafiado = saint1;
         this.desafiante = saint2;
     }
-    public void iniciar(){
+    public void iniciar() throws Exception{
         final double dano = 10;
         if ((desafiado.getArmadura().getCatArmadura().getValor()) >= (desafiante.getArmadura().getCatArmadura().getValor())) {
             desafiante.perderVida(dano);
