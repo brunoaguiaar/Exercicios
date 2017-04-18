@@ -15,5 +15,9 @@ public class Golpe{
         return this.nome;
     }
 
-    
+    public boolean equals(Object object){
+        Golpe outroGolpe = (Golpe)object;
+        
+        return this.nome.equals(outroGolpe.getNome()) && this.fatorDano == outroGolpe.getFatorDano();
+    }
 }
