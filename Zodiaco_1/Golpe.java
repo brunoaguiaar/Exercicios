@@ -1,13 +1,18 @@
 public class Golpe{
     private String nome;
-    private int dano;
+    private int fatorDano;
 
-    public Golpe(String nome){
+    public Golpe(String nome, int fatorDano){
         this.nome = nome;
+        this.fatorDano = fatorDano;
     }
 
-    public int fatorDano(int dano) {
-        return this.dano = dano;
+    public int getFatorDano() {
+        return this.fatorDano;
+    }
+    
+    public String getNome() {
+        return this.nome;
     }
 
     
