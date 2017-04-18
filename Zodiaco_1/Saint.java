@@ -1,3 +1,6 @@
+import java.security.*;
+import java.util.ArrayList;
+
 public class Saint {
     private String nome;
     protected Armadura armadura;
@@ -6,6 +9,7 @@ public class Saint {
     private Status status = Status.VIVO;
     private double vida = 100.0;
     protected int sentidosDespertados = 5;
+    private int golpeAtual;
 
     public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
@@ -43,10 +47,10 @@ public class Saint {
 
     public void perderVida(double dano) throws Exception{
         if ((getVida() > 0) && (getVida() <= 100)){
-            if (dano > getVida()){
+            if ((dano > 0) && (dano > getVida())){
                 status = Status.MORTO;
                 vida = 0;
-            } else if (dano < getVida()){
+            } else if ((dano > 0) && (dano < getVida())){
                 this.vida -= dano;
             }
         } else if(getVida() <= 0){
@@ -58,4 +62,20 @@ public class Saint {
     public int getSentidosDespertados(){
         return this.sentidosDespertados;
     }
+    
+    public ArrayList<Golpe> getGolpes() {
+        return this.armadura.getConstelacao().getGolpes();
+    }
+    
+    public void aprenderGolpe(Golpe golpe) {
+        this.armadura.getConstelacao().adicionarGolpe(golpe);
+    }
+    
+    public Golpe getProximoGolpe() {
+        if(this.golpeAtual >= getGolpes().size()) {
+            this.golpeAtual = 0;
+        }
+        return getGolpes().get(golpeAtual++);
+    }
+
 }
