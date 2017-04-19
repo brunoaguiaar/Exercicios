@@ -14,6 +14,7 @@ public class ConstelacaoTest
         gemeos.adicionarGolpe(outraDimensao);
         ArrayList <Golpe> golpes = gemeos.getGolpes();
         assertEquals(golpes.get(0), new Golpe("Outra Dimensao", 10));
+        assertEquals(1, golpes.size());
     }
 
     @Test
@@ -26,6 +27,7 @@ public class ConstelacaoTest
         ArrayList <Golpe> golpes = gemeos.getGolpes();
         assertEquals(golpes.get(0), new Golpe("Outra Dimensao", 10));
         assertEquals(golpes.get(1), new Golpe("Gremio", 13));
+        assertEquals(2, golpes.size());
     }
 
     @Test
@@ -41,6 +43,7 @@ public class ConstelacaoTest
         assertEquals(golpes.get(0), new Golpe("Outra Dimensao", 10));
         assertEquals(golpes.get(1), new Golpe("Gremio", 13));
         assertEquals(golpes.get(2), new Golpe("Inter", 1));
+        assertEquals(3, golpes.size());
     }
 
     @Test
@@ -59,5 +62,6 @@ public class ConstelacaoTest
         assertEquals(golpes.get(1), new Golpe("Gremio", 13));
         assertEquals(golpes.get(2), new Golpe("Inter", 1));
         assertEquals(golpes.get(3), new Golpe("cafe", 30));
+        assertEquals(4, golpes.size());
     }
 }
