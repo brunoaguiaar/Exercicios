@@ -115,6 +115,28 @@ public class ListaSaintsTest
         lucas.perderVida(5.0);
         assertEquals(listaSaints.getSaintMenorVida(), fabi);
     }
-    
-   
+
+    @Test
+    public void ordenarOrdenaOsElementosEmOrdemAscendenteDeVida () throws Exception {
+    	Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.PRATA));
+        Saint fabi = new Saint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint izadora = new Saint("Izadora", new Armadura(new Constelacao("Gemeos"), Categoria.PRATA));
+        Saint lucas = new Saint("Lucas", new Armadura(new Constelacao("Gemeos"), Categoria.OURO));
+        ListaSaints listaSaints = new ListaSaints();
+        bruno.perderVida(15.0);//2
+        fabi.perderVida(80.0);//4
+        izadora.perderVida(50.0);//3
+        lucas.perderVida(5.0);//1
+        listaSaints.adicionar(bruno);
+        listaSaints.adicionar(fabi);
+        listaSaints.adicionar(izadora);
+        listaSaints.adicionar(lucas);
+        listaSaints.ordenar();
+		ArrayList<Saint> resultado = listaSaints.todos();
+        assertEquals(listaSaints.get(0), fabi);
+        assertEquals(listaSaints.get(1), izadora);
+        assertEquals(listaSaints.get(2), bruno);
+        assertEquals(listaSaints.get(3), lucas);
+    }
+
 }
