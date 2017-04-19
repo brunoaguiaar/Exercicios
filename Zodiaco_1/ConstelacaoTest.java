@@ -2,6 +2,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.ArrayList;
 import java.lang.ArrayIndexOutOfBoundsException;
 
 public class ConstelacaoTest
@@ -11,11 +12,10 @@ public class ConstelacaoTest
         Constelacao gemeos = new Constelacao("Gemeos");
         Golpe outraDimensao = new Golpe("Outra Dimensao", 10);
         gemeos.adicionarGolpe(outraDimensao);
-        Golpe[] golpes = gemeos.getGolpes();
-        assertEquals(outraDimensao, golpes[0]);
-        assertNull(golpes[1]);
-        assertNull(golpes[2]);
+        ArrayList <Golpe> golpes = gemeos.getGolpes();
+        assertEquals(golpes.get(0), new Golpe("Outra Dimensao", 10));
     }
+
     @Test
     public void adicionarDoisGolpes(){
         Constelacao gemeos = new Constelacao("Gemeos");
@@ -23,12 +23,11 @@ public class ConstelacaoTest
         Golpe gremio = new Golpe("Gremio", 13);
         gemeos.adicionarGolpe(outraDimensao);
         gemeos.adicionarGolpe(gremio);
-        Golpe[] golpes = gemeos.getGolpes();
-        assertEquals(outraDimensao, golpes[0]);
-        assertEquals(gremio, golpes[1]);
-        assertNull(golpes[2]);
-    
+        ArrayList <Golpe> golpes = gemeos.getGolpes();
+        assertEquals(golpes.get(0), new Golpe("Outra Dimensao", 10));
+        assertEquals(golpes.get(1), new Golpe("Gremio", 13));
     }
+
     @Test
     public void adicionarTresolpes() {
         Constelacao gemeos = new Constelacao("Gemeos");
@@ -38,12 +37,13 @@ public class ConstelacaoTest
         gemeos.adicionarGolpe(outraDimensao);
         gemeos.adicionarGolpe(gremio);
         gemeos.adicionarGolpe(inter);
-        Golpe[] golpes = gemeos.getGolpes();
-        assertEquals(outraDimensao, golpes[0]);
-        assertEquals(gremio, golpes[1]);
-        assertEquals(inter, golpes[2]);        
+        ArrayList <Golpe> golpes = gemeos.getGolpes();
+        assertEquals(golpes.get(0), new Golpe("Outra Dimensao", 10));
+        assertEquals(golpes.get(1), new Golpe("Gremio", 13));
+        assertEquals(golpes.get(2), new Golpe("Inter", 1));
     }
-    @Test(expected=ArrayIndexOutOfBoundsException.class)
+
+    @Test
     public void adicionarQuatroGolpes() {
         Constelacao gemeos = new Constelacao("Gemeos");
         Golpe outraDimensao = new Golpe("Outra Dimensao", 10);
@@ -54,10 +54,10 @@ public class ConstelacaoTest
         gemeos.adicionarGolpe(gremio);
         gemeos.adicionarGolpe(inter);
         gemeos.adicionarGolpe(cafe);
-        Golpe[] golpes = gemeos.getGolpes();
-        assertEquals(outraDimensao, golpes[0]);
-        assertEquals(gremio, golpes[1]);
-        assertEquals(inter, golpes[2]);
-        assertEquals(cafe, golpes[3]);
+        ArrayList <Golpe> golpes = gemeos.getGolpes();
+        assertEquals(golpes.get(0), new Golpe("Outra Dimensao", 10));
+        assertEquals(golpes.get(1), new Golpe("Gremio", 13));
+        assertEquals(golpes.get(2), new Golpe("Inter", 1));
+        assertEquals(golpes.get(3), new Golpe("cafe", 30));
     }
 }
