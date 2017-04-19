@@ -41,7 +41,7 @@ public class ListaSaints {
     public ArrayList<Saint> buscarPorStatus(Status status){
         ArrayList<Saint> statusSaints = new ArrayList<>();
         for(Saint saint : listaSaints){
-            if(status.equals(saint.getStatus())){
+            if(status==saint.getStatus()){
                 statusSaints.add(saint);
             }
         }
@@ -73,14 +73,22 @@ public class ListaSaints {
     }
     
     public void ordenar(){
+       double menor;
        
-       Saint ordem = null;
        for(int i = 0;i<listaSaints.size()-1; i++){
-           for(int j = 1; j<listaSaints.size(); j++){
-               if(listaSaints.get(i).getVida()<listaSaints.get(j).getVida()){
+           menor=999999999;
+           Saint ordem = null;
+           for(int j = i; j<listaSaints.size(); j++){
+               /*if(listaSaints.get(i).getVida()<listaSaints.get(j).getVida()){
                    ordem = listaSaints.get(i);
                    listaSaints.add(listaSaints.indexOf(ordem),listaSaints.get(j));
                    listaSaints.add(listaSaints.indexOf(listaSaints.get(j)),ordem);
+                }*/
+                if(listaSaints.get(j).getVida()<menor){
+                    menor=listaSaints.get(j).getVida();
+                    ordem=this.get(i);
+                    listaSaints.set(i,this.get(i));
+                    listaSaints.set(j,ordem);
                 }
             }
         }
