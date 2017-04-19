@@ -16,6 +16,10 @@ public class Saint {
         this.armadura = armadura;
     }
 
+    public String getNome(){
+        return this.nome;
+    }
+    
     public void vestirArmadura(){
         this.armaduraVestida = true;
     }
@@ -70,7 +74,8 @@ public class Saint {
     private  Constelacao getConstelacao(){
         return this.armadura.getConstelacao();
     }
-    public Golpe[] getGolpes() {
+    
+    public ArrayList <Golpe> getGolpes() {
         return getConstelacao().getGolpes();
     }
     
@@ -79,8 +84,16 @@ public class Saint {
     }
     
     public Golpe getProximoGolpe() {
-        Golpe g = getConstelacao().getGolpes()[golpeAtual++ % getGolpes().length];
+        Golpe g = getConstelacao().getGolpes().get(golpeAtual++ % getGolpes().size());
         return g;
     }
-
+    
+    public int getValorCatArmadura(){
+        return armadura.getValorCategoria();
+    }
+    
+    public Categoria getCatArmadura(){
+        return this.armadura.getCatArmadura();
+    }
+    
 }

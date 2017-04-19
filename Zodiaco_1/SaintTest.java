@@ -101,18 +101,18 @@ public class SaintTest {
         Golpe soco = new Golpe("Soco", 5);
         Golpe chute = new Golpe("voadora", 10);
         Golpe cotovelada = new Golpe("cotovelada", 3);
+        Golpe shape = new Golpe("shape", 8);
         bruno.aprenderGolpe(soco);             
         assertEquals(soco, bruno.getProximoGolpe());
         bruno.aprenderGolpe(chute);
         assertEquals(chute, bruno.getProximoGolpe());
         bruno.aprenderGolpe(cotovelada);
         assertEquals(cotovelada, bruno.getProximoGolpe());
+        bruno.aprenderGolpe(shape);             
+        assertEquals(shape, bruno.getProximoGolpe());
         assertEquals(soco, bruno.getProximoGolpe());
     }
 }
-
-
-
 
 
 
