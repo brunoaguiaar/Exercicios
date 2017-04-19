@@ -14,5 +14,10 @@ public class Armadura {
     public Categoria getCatArmadura(){
         return this.categoria;
     }
+    
+    public int getValorCategoria(){
+        return categoria.getValor();
+    }
+    
 }
 
