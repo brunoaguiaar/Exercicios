@@ -102,7 +102,12 @@ public class ListaSaints {
                 }
             }
         } while (posicoesSendoTrocadas);   
-    }
+    
+	}
+
+	public void ordenar(TipoOrdenacao tipoOrdenacao){
+		this.ordenr();
+	}
 }
 
 
