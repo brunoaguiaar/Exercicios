@@ -27,10 +27,10 @@ public class ListaSaints {
             }
         }
         return null;
-		/*return this.listaSaints.stream()
-		.filter(s -> s.getNome().equals(nome))
-		.findFirst()
-		.orElse(null);*/
+        /*return this.listaSaints.stream()
+        .filter(s -> s.getNome().equals(nome))
+        .findFirst()
+        .orElse(null);*/
     }
     
     public ArrayList<Saint> buscarPorCategoria(Categoria categoria){
@@ -41,8 +41,8 @@ public class ListaSaints {
             }
         }
         return categoriaSaints;*/
-		
-		return (ArrayList<Saint>)this.listaSaints.stream()
+        
+        return (ArrayList<Saint>)this.listaSaints.stream()
             .filter(s -> s.getArmadura().getCatArmadura().equals(categoria))
             .collect(Collectors.toList());
     }
@@ -103,11 +103,28 @@ public class ListaSaints {
             }
         } while (posicoesSendoTrocadas);   
     
-	}
+    }
 
-	public void ordenar(TipoOrdenacao tipoOrdenacao){
-		this.ordenr();
-	}
+    public void ordenar(TipoOrdenacao tipoOrdenacao){
+        if(tipoOrdenacao.equals(tipoOrdenacao.ASCENDENTE)){
+            this.ordenar();
+        } else {
+             boolean posicoesSendoTrocadas;
+             do {
+                 posicoesSendoTrocadas = false;
+                 for (int i = 0; i < this.listaSaints.size() - 1; i++) {
+                     Saint atual = this.listaSaints.get(i);
+                     Saint proximo = this.listaSaints.get(i + 1);
+                     boolean precisaTrocar = atual.getVida() < proximo.getVida();
+                     if (precisaTrocar) {
+                         this.listaSaints.set(i, proximo);
+                         this.listaSaints.set(i + 1, atual);
+                         posicoesSendoTrocadas = true;
+                        }
+                 }
+             } while (posicoesSendoTrocadas);  
+        }
+    }
 }
 
 
