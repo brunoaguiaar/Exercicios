@@ -96,4 +96,15 @@ public class Saint {
         return this.armadura.getCatArmadura();
     }
     
+    public String getCSV(){
+        String resultado = 
+            this.nome + "," +
+            this.vida + "," +
+            this.getConstelacao().getNome() + "," +
+            this.armadura.getCatArmadura() + "," +
+            this.status + "," +
+            this.genero + "," +
+            this.armaduraVestida;                   
+        return resultado;
+    }
 }
