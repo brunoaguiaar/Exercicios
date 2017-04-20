@@ -218,4 +218,37 @@ public class ListaSaintsTest
         assertEquals(fabi, novaLista.get(2));
         assertEquals(lucas, novaLista.get(3));
     }
+    
+    @Test
+    public void diffListasComSaintIgual() throws Exception {
+        Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.PRATA));
+        Saint fabi = new Saint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint izadora = new Saint("Izadora", new Armadura(new Constelacao("Gemeos"), Categoria.PRATA));
+        ListaSaints lista1 = new ListaSaints();
+        lista1.adicionar(bruno);
+        lista1.adicionar(fabi);
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar(bruno);
+        lista1.adicionar(izadora);
+        ListaSaints novaLista = lista1.diff(lista2);
+        assertEquals(2, novaLista.todos().size());
+        assertEquals(fabi, novaLista.get(0));
+        assertEquals(izadora, novaLista.get(1));
+    }
+    
+    @Test
+    public void intersecListasComSaintIgual() throws Exception {
+        Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.PRATA));
+        Saint fabi = new Saint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint izadora = new Saint("Izadora", new Armadura(new Constelacao("Gemeos"), Categoria.PRATA));
+        ListaSaints lista1 = new ListaSaints();
+        lista1.adicionar(bruno);
+        lista1.adicionar(fabi);
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar(bruno);
+        lista1.adicionar(izadora);
+        ListaSaints novaLista = lista1.intersec(lista2);
+        assertEquals(1, novaLista.todos().size());
+        assertEquals(bruno, novaLista.get(0));
+    }
 }

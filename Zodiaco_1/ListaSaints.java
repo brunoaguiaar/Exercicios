@@ -137,6 +137,25 @@ public class ListaSaints {
         return listaVolta;
     }
     
+    public ListaSaints diff(ListaSaints listaNova){
+        ListaSaints listaVolta = new ListaSaints();
+        for(Saint saint : this.listaSaints) {
+            if(!listaNova.todos().contains(saint)){
+                listaVolta.adicionar(saint);
+            }
+        }
+        return listaVolta;
+    }
+    
+    public ListaSaints intersec(ListaSaints listaNova){
+        ListaSaints listaVolta = new ListaSaints();
+        for(Saint saint : this.listaSaints) {
+            if(listaNova.todos().contains(saint)){
+                listaVolta.adicionar(saint);
+            }
+        }
+        return listaVolta;
+    }
 }
 
 
