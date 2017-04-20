@@ -125,6 +125,18 @@ public class ListaSaints {
              } while (posicoesSendoTrocadas);  
         }
     }
+    
+    private void adicionarTodos(ListaSaints lista) {
+        this.listaSaints.addAll(lista.todos());
+    }
+    
+    public ListaSaints unir(ListaSaints listaNova) {
+        ListaSaints listaVolta = new ListaSaints();
+        listaVolta.adicionarTodos(this);
+        listaVolta.adicionarTodos(listaNova);
+        return listaVolta;
+    }
+    
 }
 
 

@@ -19,7 +19,7 @@ public class ListaSaintsTest
         assertEquals(listaSaints.get(1), fabi);
         assertEquals(listaSaints.get(2), izadora);
     }
-    
+
     @Test
     public void tirarSaintDaLista () throws Exception {
         Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.OURO));
@@ -33,7 +33,7 @@ public class ListaSaintsTest
         assertEquals(listaSaints.get(0), bruno);
         assertEquals(listaSaints.get(1), izadora);
     }
-    
+
     @Test
     public void retornarSaintComNome () throws Exception {
         Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.OURO));
@@ -46,7 +46,7 @@ public class ListaSaintsTest
         Saint saint = listaSaints.buscarPorNome ("Fabi");
         assertEquals(saint, fabi);
     }
-    
+
     @Test
     public void retornarOPrimeiroSaintComNome () throws Exception {
         Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.OURO));
@@ -61,7 +61,7 @@ public class ListaSaintsTest
         Saint saint = listaSaints.buscarPorNome ("Izadora");
         assertEquals(saint, izadora);
     }
-    
+
     @Test
     public void buscarPorCategoriaPrata () throws Exception {
         Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.PRATA));
@@ -79,7 +79,7 @@ public class ListaSaintsTest
         assertEquals(goldSaints.get(1), izadora);
         assertEquals(goldSaints.get(2), paulo);
     }
-    
+
     @Test
     public void getSaintMaiorVidaRetornaSaintMaiorDeVida () throws Exception {
         Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.PRATA));
@@ -97,7 +97,7 @@ public class ListaSaintsTest
         lucas.perderVida(5.0);
         assertEquals(listaSaints.getSaintMaiorVida(), lucas);
     }
-    
+
     @Test
     public void getSaintMenorVidaRetornaSaintMenorDeVida () throws Exception {
         Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.PRATA));
@@ -138,10 +138,10 @@ public class ListaSaintsTest
         assertEquals(listaSaints.get(2), bruno);
         assertEquals(listaSaints.get(3), lucas);
     }
-    
+
     @Test
     public void tipoOrdenacaoAscendenteOrdenaAscendente() throws Exception {
-    	Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.PRATA));
+        Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.PRATA));
         Saint fabi = new Saint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         Saint izadora = new Saint("Izadora", new Armadura(new Constelacao("Gemeos"), Categoria.PRATA));
         Saint lucas = new Saint("Lucas", new Armadura(new Constelacao("Gemeos"), Categoria.OURO));
@@ -155,16 +155,16 @@ public class ListaSaintsTest
         listaSaints.adicionar(izadora);
         listaSaints.adicionar(lucas);
         listaSaints.ordenar(TipoOrdenacao.ASCENDENTE);
-		ArrayList<Saint> resultado = listaSaints.todos();
+        ArrayList<Saint> resultado = listaSaints.todos();
         assertEquals(listaSaints.get(0), fabi);
         assertEquals(listaSaints.get(1), izadora);
         assertEquals(listaSaints.get(2), bruno);
         assertEquals(listaSaints.get(3), lucas);
     }
-    
+
     @Test
     public void tipoOrdenacaoDescendenteOrdenaDescendente() throws Exception {
-    	Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.PRATA));
+        Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.PRATA));
         Saint fabi = new Saint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         Saint izadora = new Saint("Izadora", new Armadura(new Constelacao("Gemeos"), Categoria.PRATA));
         Saint lucas = new Saint("Lucas", new Armadura(new Constelacao("Gemeos"), Categoria.OURO));
@@ -178,10 +178,44 @@ public class ListaSaintsTest
         listaSaints.adicionar(izadora);
         listaSaints.adicionar(lucas);
         listaSaints.ordenar(TipoOrdenacao.DESCENDENTE);
-		ArrayList<Saint> resultado = listaSaints.todos();
+        ArrayList<Saint> resultado = listaSaints.todos();
         assertEquals(listaSaints.get(0), lucas);
         assertEquals(listaSaints.get(1), bruno);
         assertEquals(listaSaints.get(2), izadora);
         assertEquals(listaSaints.get(3), fabi);
+    }
+    
+    @Test
+    public void unirListasComUMSaint() throws Exception {
+        Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.PRATA));
+        Saint fabi = new Saint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        ListaSaints lista1 = new ListaSaints();
+        lista1.adicionar(bruno);
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar(fabi);
+        ListaSaints novaLista = lista1.unir(lista2);
+        assertEquals(2, novaLista.todos().size());
+        assertEquals(bruno, novaLista.get(0));
+        assertEquals(fabi, novaLista.get(1));
+    }
+
+    @Test
+    public void unirListasComDoisSaint() throws Exception {
+        Saint bruno = new Saint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.PRATA));
+        Saint fabi = new Saint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint izadora = new Saint("Izadora", new Armadura(new Constelacao("Gemeos"), Categoria.PRATA));
+        Saint lucas = new Saint("Lucas", new Armadura(new Constelacao("Gemeos"), Categoria.OURO));
+        ListaSaints lista1 = new ListaSaints();
+        lista1.adicionar(bruno);
+        lista1.adicionar(izadora);
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar(fabi);
+        lista2.adicionar(lucas);
+        ListaSaints novaLista = lista1.unir(lista2);
+        assertEquals(4, novaLista.todos().size());
+        assertEquals(bruno, novaLista.get(0));
+        assertEquals(izadora, novaLista.get(1));
+        assertEquals(fabi, novaLista.get(2));
+        assertEquals(lucas, novaLista.get(3));
     }
 }
