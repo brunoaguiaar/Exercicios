@@ -1,7 +1,7 @@
 import java.security.*;
 import java.util.ArrayList;
 
-public class Saint {
+public abstract class Saint {
     private String nome;
     protected Armadura armadura;
     private boolean armaduraVestida;
