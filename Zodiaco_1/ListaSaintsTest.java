@@ -8,9 +8,9 @@ public class ListaSaintsTest
 {
     @Test
     public void adicionarSaintNaLista () throws Exception {
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        GoldSaint izadora = new GoldSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi", "Touro");
+        GoldSaint izadora = new GoldSaint("Izadora", "Touro");
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar(bruno);
         listaSaints.adicionar(fabi);
@@ -22,9 +22,9 @@ public class ListaSaintsTest
 
     @Test
     public void tirarSaintDaLista () throws Exception {
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        GoldSaint izadora = new GoldSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi", "Touro");
+        GoldSaint izadora = new GoldSaint("Izadora", "Touro");
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar(bruno);
         listaSaints.adicionar(fabi);
@@ -36,9 +36,9 @@ public class ListaSaintsTest
 
     @Test
     public void retornarSaintComNome () throws Exception {
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        GoldSaint izadora = new GoldSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi","Touro");
+        GoldSaint izadora = new GoldSaint("Izadora", "Touro");
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar(bruno);
         listaSaints.adicionar(fabi);
@@ -49,10 +49,10 @@ public class ListaSaintsTest
 
     @Test
     public void retornarOPrimeiroSaintComNome () throws Exception {
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        GoldSaint izadora = new GoldSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        GoldSaint izadora2 = new GoldSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi", "Touro");
+        GoldSaint izadora = new GoldSaint("Izadora", "Touro");
+        GoldSaint izadora2 = new GoldSaint("Izadora", "Touro");
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar(bruno);
         listaSaints.adicionar(fabi);
@@ -64,11 +64,11 @@ public class ListaSaintsTest
 
     @Test
     public void buscarPorCategoriaPrata () throws Exception {
-        SilverSaint bruno = new SilverSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        SilverSaint izadora = new SilverSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint lucas = new GoldSaint("Lucas", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        SilverSaint paulo = new SilverSaint("Paulo", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
+        SilverSaint bruno = new SilverSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi", "Touro");
+        SilverSaint izadora = new SilverSaint("Izadora", "Touro");
+        GoldSaint lucas = new GoldSaint("Lucas", "Touro");
+        SilverSaint paulo = new SilverSaint("Paulo", "Touro");
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar(bruno);
         listaSaints.adicionar(fabi);
@@ -82,10 +82,10 @@ public class ListaSaintsTest
 
     @Test
     public void getSaintMaiorVidaRetornaSaintMaiorDeVida () throws Exception {
-        SilverSaint bruno = new SilverSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        SilverSaint izadora = new SilverSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint lucas = new GoldSaint("Lucas", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        SilverSaint bruno = new SilverSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi", "Touro");
+        SilverSaint izadora = new SilverSaint("Izadora", "Touro");
+        GoldSaint lucas = new GoldSaint("Lucas", "Touro");
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar(bruno);
         listaSaints.adicionar(fabi);
@@ -100,10 +100,10 @@ public class ListaSaintsTest
 
     @Test
     public void getSaintMenorVidaRetornaSaintMenorDeVida () throws Exception {
-        SilverSaint bruno = new SilverSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        SilverSaint izadora = new SilverSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint lucas = new GoldSaint("Lucas", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        SilverSaint bruno = new SilverSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi", "Touro");
+        SilverSaint izadora = new SilverSaint("Izadora", "Touro");
+        GoldSaint lucas = new GoldSaint("Lucas", "Touro");
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar(bruno);
         listaSaints.adicionar(fabi);
@@ -118,10 +118,10 @@ public class ListaSaintsTest
 
     @Test
     public void ordenarOrdenaOsElementosEmOrdemAscendenteDeVida () throws Exception {
-        SilverSaint bruno = new SilverSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        SilverSaint izadora = new SilverSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint lucas = new GoldSaint("Lucas", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        SilverSaint bruno = new SilverSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi", "Touro");
+        SilverSaint izadora = new SilverSaint("Izadora", "Touro");
+        GoldSaint lucas = new GoldSaint("Lucas", "Touro");
         ListaSaints listaSaints = new ListaSaints();
         bruno.perderVida(15.0);//2
         fabi.perderVida(80.0);//4
@@ -141,10 +141,10 @@ public class ListaSaintsTest
 
     @Test
     public void tipoOrdenacaoAscendenteOrdenaAscendente() throws Exception {
-        SilverSaint bruno = new SilverSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        SilverSaint izadora = new SilverSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint lucas = new GoldSaint("Lucas", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        SilverSaint bruno = new SilverSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi", "Touro");
+        SilverSaint izadora = new SilverSaint("Izadora", "Touro");
+        GoldSaint lucas = new GoldSaint("Lucas", "Touro");
         ListaSaints listaSaints = new ListaSaints();
         bruno.perderVida(15.0);//3
         fabi.perderVida(80.0);//1
@@ -164,10 +164,10 @@ public class ListaSaintsTest
 
     @Test
     public void tipoOrdenacaoDescendenteOrdenaDescendente() throws Exception {
-        SilverSaint bruno = new SilverSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        SilverSaint izadora = new SilverSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint lucas = new GoldSaint("Lucas", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        SilverSaint bruno = new SilverSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi", "Touro");
+        SilverSaint izadora = new SilverSaint("Izadora", "Touro");
+        GoldSaint lucas = new GoldSaint("Lucas", "Touro");
         ListaSaints listaSaints = new ListaSaints();
         bruno.perderVida(15.0);//2
         fabi.perderVida(80.0);//4
@@ -187,8 +187,8 @@ public class ListaSaintsTest
     
     @Test
     public void unirListasComUMSaint() throws Exception {
-        SilverSaint bruno = new SilverSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        SilverSaint bruno = new SilverSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi", "Touro");
         ListaSaints lista1 = new ListaSaints();
         lista1.adicionar(bruno);
         ListaSaints lista2 = new ListaSaints();
@@ -201,10 +201,10 @@ public class ListaSaintsTest
 
     @Test
     public void unirListasComDoisSaint() throws Exception {
-        SilverSaint bruno = new SilverSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        SilverSaint izadora = new SilverSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint lucas = new GoldSaint("Lucas", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        SilverSaint bruno = new SilverSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi", "Touro");
+        SilverSaint izadora = new SilverSaint("Izadora", "Touro");
+        GoldSaint lucas = new GoldSaint("Lucas", "Touro");
         ListaSaints lista1 = new ListaSaints();
         lista1.adicionar(bruno);
         lista1.adicionar(izadora);
@@ -221,9 +221,9 @@ public class ListaSaintsTest
     
     @Test
     public void diffListasComSaintIgual() throws Exception {
-        SilverSaint bruno = new SilverSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        SilverSaint izadora = new SilverSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
+        SilverSaint bruno = new SilverSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi", "Touro");
+        SilverSaint izadora = new SilverSaint("Izadora", "Touro");
         ListaSaints lista1 = new ListaSaints();
         lista1.adicionar(bruno);
         lista1.adicionar(fabi);
@@ -238,9 +238,9 @@ public class ListaSaintsTest
     
     @Test
     public void intersecListasComSaintIgual() throws Exception {
-        SilverSaint bruno = new SilverSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        GoldSaint fabi = new GoldSaint("Fabi", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        SilverSaint izadora = new SilverSaint("Izadora", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
+        SilverSaint bruno = new SilverSaint("Bruno", "Touro");
+        GoldSaint fabi = new GoldSaint("Fabi", "Touro");
+        SilverSaint izadora = new SilverSaint("Izadora", "Touro");
         ListaSaints lista1 = new ListaSaints();
         lista1.adicionar(bruno);
         lista1.adicionar(fabi);
