@@ -7,8 +7,8 @@ import org.junit.Test;
 public class BatalhaTest {
     @Test
     public void categoriaDesafiadoMaiorQueDefafiante()throws Exception{
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.OURO));
-        SilverSaint shaka = new SilverSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
+        GoldSaint bruno = new GoldSaint("Bruno", "Leao");
+        SilverSaint shaka = new SilverSaint("Shaka", "Touro");
         Batalha batalha = new Batalha(bruno, shaka);
 
         batalha.iniciar();
@@ -19,8 +19,8 @@ public class BatalhaTest {
 
     @Test
     public void categoriaDesafianteMaiorQueDesafiado() throws Exception{
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.OURO));
-        SilverSaint shaka = new SilverSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
+        GoldSaint bruno = new GoldSaint("Bruno", "Leao");
+        SilverSaint shaka = new SilverSaint("Shaka","Touro");
         Batalha batalha = new Batalha(bruno, shaka);
 
         batalha.iniciar();
@@ -31,8 +31,8 @@ public class BatalhaTest {
 
     @Test
     public void categoriaDesafianteIgualODesafiado()throws Exception{
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Leao"), Categoria.OURO));
-        SilverSaint shaka = new SilverSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
+        GoldSaint bruno = new GoldSaint("Bruno", "Leao");
+        SilverSaint shaka = new SilverSaint("Shaka", "Touro");
         Batalha batalha = new Batalha(bruno, shaka);
 
         batalha.iniciar();

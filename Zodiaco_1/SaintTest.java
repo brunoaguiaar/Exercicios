@@ -10,7 +10,7 @@ public class SaintTest {
         // AAA
         // 1. Arrange - Montagem dos dados de teste
         Armadura illuminati = new Armadura(new Constelacao("Touro"), Categoria.OURO);
-        GoldSaint alcemar = new GoldSaint("Alcemar", illuminati);        
+        GoldSaint alcemar = new GoldSaint("Alcemar", "Touro");        
         // 2. Act - Invocar a ação a ser testada
         alcemar.vestirArmadura();
         // 3. Assert - Verificação dos resultados do teste
@@ -20,84 +20,84 @@ public class SaintTest {
 
     @Test
     public void naoVestirArmaduraDeixaArmaduraNaoVestida()throws Exception{
-        BronzeSaint hyoga = new BronzeSaint("Hyoga", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        BronzeSaint hyoga = new BronzeSaint("Hyoga", "Touro");
         assertEquals(false, hyoga.getArmaduraVestida());
     }
 
     @Test
     public void aoCriarSaintGeneroENaoInformado()throws Exception {
-        GoldSaint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        GoldSaint shaka = new GoldSaint("Shaka", "Touro");
         assertEquals(Genero.NAO_INFORMADO, shaka.getGenero());
     }
 
     @Test
     public void aoCriaSaintStatusVivo()throws Exception {
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
         assertEquals(Status.VIVO, bruno.getStatus());
     }
 
     @Test
     public void vidaInicialDeveSer100()throws Exception {
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
         assertEquals(100.0, bruno.getVida(), 0.01);
     }
 
     @Test
     public void testeDePerderVidaComValor10()throws Exception{
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
         bruno.perderVida(10);
         assertEquals(90.0, bruno.getVida(), 0.01);
     }
 
     @Test
     public void testeDePerderVidaComValor90()throws Exception{
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
         bruno.perderVida(90);
         assertEquals(10, bruno.getVida(), 0.01);
     }
 
     @Test
     public void testeDePerderVidaComValor1000()throws Exception{
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
         bruno.perderVida(1000);
         assertEquals(Status.MORTO, bruno.getStatus());
     }
 
     @Test(expected=InvalidParameterException.class)
     public void testeDePerderVidaComValorMenos2000()throws Exception{
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
         bruno.perderVida(-2000);
         assertEquals(1900, bruno.getVida(), 0.01);
     }
 
     @Test
     public void aoCriarOSaintBronzeEleNasceCom5SentidosDespertados()throws Exception {
-        BronzeSaint bruno = new BronzeSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        BronzeSaint bruno = new BronzeSaint("Bruno", "Touro");
         assertEquals(5, bruno.getSentidosDespertados());
     }
 
     @Test
     public void aoCriarOSaintPrataEleNasceCom6SentidosDespertados() throws Exception{
-        SilverSaint bruno = new SilverSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
+        SilverSaint bruno = new SilverSaint("Bruno", "Touro");
         assertEquals(6, bruno.getSentidosDespertados());
     }
 
     @Test
     public void aoCriarOSaintOuroEleNasceCom7SentidosDespertados() throws Exception{
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
         assertEquals(7, bruno.getSentidosDespertados());
     }
 
     @Test
     public void aoFicarComVida0StatusMudaParaMorto() throws Exception{
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
         bruno.perderVida(101);
         assertEquals(Status.MORTO, bruno.getStatus());
     }
 
     @Test
     public void verificaSeOProximoGolpeÉOProximoMesmo() throws Exception {
-        GoldSaint bruno = new GoldSaint("Bruno", new Armadura (new Constelacao("Touro"),Categoria.OURO));
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
         Golpe soco = new Golpe("Soco", 5);
         Golpe chute = new Golpe("voadora", 10);
         Golpe cotovelada = new Golpe("cotovelada", 3);
