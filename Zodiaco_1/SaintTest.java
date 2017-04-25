@@ -118,6 +118,43 @@ public class SaintTest {
         assertEquals(shape, bruno.getProximoGolpe());
         assertEquals(soco, bruno.getProximoGolpe());
     }
+    
+    @Test
+    public void criarUmSaintIncrementaId() throws Exception{
+        //getAcumuladorId
+        int idAntes = Saint.getAcumuladorId();
+        assertEquals(idAntes + 1, new GoldSaint("Bruno", "Touro").getId());
+    }
+    
+    @Test
+    public void criarDoisSaintIncrementaId() throws Exception{
+        //getAcumuladorId
+        int idAntes = Saint.getAcumuladorId();
+        new GoldSaint("Bruno", "Touro");
+        Saint fabi = new GoldSaint("Fabi", "Touro");
+        assertEquals(idAntes + 2, fabi.getId());
+    }
+    
+    @Test
+    public void criarTresSaintIncrementaId() throws Exception{
+        //getAcumuladorId
+        int idAntes = Saint.getAcumuladorId();
+        new GoldSaint("Bruno", "Touro");
+        Saint fabi = new GoldSaint("Fabi", "Touro");
+        Saint odin = new GoldSaint("Odin", "Touro");
+        assertEquals(idAntes + 3, odin.getId());
+    }
+    
+    @Test
+    public void criarUmSaintEDepoisLimparEDeveIncrementaId() throws Exception{
+        //getAcumuladorId
+        int idAntes = Saint.getAcumuladorId();
+        Saint fabi = new GoldSaint("Fabi", "Touro");
+        fabi = (null);
+        System.gc();
+        Saint odin = new GoldSaint("Odin", "Touro");
+        assertEquals(idAntes + 2, odin.getId());
+    }
 }
 
 
