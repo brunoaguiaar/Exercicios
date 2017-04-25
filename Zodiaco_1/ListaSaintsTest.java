@@ -158,6 +158,7 @@ public class ListaSaintsTest {
         ListaSaints listaSaints = new ListaSaints();
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
         listaSaints.adicionar(june);
+        june.perderVida(20);
         assertEquals(june, listaSaints.getSaintMenorVida());
     }
 

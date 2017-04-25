@@ -162,7 +162,7 @@ public class ListaSaints {
             return "";
         }
 
-        String separador = System.getProperty("line.separator");
+        String separador = "\n";
         StringBuilder builder = new StringBuilder(512);
 
         builder.append(this.listaSaints.get(0).getCSV());
