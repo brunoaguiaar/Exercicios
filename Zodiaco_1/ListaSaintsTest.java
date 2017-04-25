@@ -441,4 +441,24 @@ public class ListaSaintsTest {
         assertEquals(esperado, lista.getCSV());
     }
 
+    @Test
+    public void criarUmSaintEVerificarSetemUmSaintAMaisQueNaQtdSaint()throws Exception {
+        int antes = Saint.getQtdSaints();
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
+        assertEquals(antes + 1, Saint.getQtdSaints());
+    }
+    
+    @Test
+    public void criarDoisSaintEVerificarSetemDoisAMaisNaQtdSaint()throws Exception {
+        int antes = Saint.getQtdSaints();
+        GoldSaint bruno = new GoldSaint("Bruno", "Touro");
+        GoldSaint odin = new GoldSaint("Odin", "Touro");
+        assertEquals(antes + 2, Saint.getQtdSaints());
+    }
+    
+    
+    
+    
+    
+    
 }
