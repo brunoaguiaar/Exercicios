@@ -9,7 +9,8 @@ public abstract class Saint {
     private Status status = Status.VIVO;
     private double vida = 100.0;
     protected int sentidosDespertados = 5;
-    private int golpeAtual;
+    private ArrayList<Movimento> movimentos = new ArrayList<>();
+    private int golpeAtual, acumuladorProximoMovimento = 0;;
 
     protected Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
@@ -49,21 +50,19 @@ public abstract class Saint {
         return this.vida;
     }
 
-    public void perderVida(double dano) throws Exception{
-        if (dano < 0){
+    public void perderVida(double dano) {
+
+        if (dano < 0) {
             throw new InvalidParameterException("dano");
+            //throw new IllegalArgumentException("dano");
         }
-        
-        if ((getVida() > 0) && (getVida() <= 100)){
-            if ((dano > 0) && (dano > getVida())){
-                status = Status.MORTO;
-                this.vida = 0;
-            } else if ((dano > 0) && (dano < getVida())){
-                this.vida -= dano;
-            }
-        } else if(getVida() <= 0){
-            status = Status.MORTO;
-            throw new Exception("Impossivel Perder Vida, Saint esta morto");
+
+        if (vida - dano < 1) {
+            this.status = Status.MORTO;
+            this.vida = 0;
+        } else {
+            //this.vida = this.vida - dano;
+            this.vida -= dano;
         }
     }
 
@@ -97,7 +96,17 @@ public abstract class Saint {
     }
     
     public String getCSV(){
-        String resultado = 
+        return String.format(
+            "%s,%s,%s,%s,%s,%s,%s",
+            this.nome,
+            this.vida,
+            this.getConstelacao().getNome(),
+            this.armadura.getCatArmadura(),
+            this.status,
+            this.genero,
+            this.armaduraVestida
+        );
+        /*String resultado = 
             this.nome + "," +
             this.vida + "," +
             this.getConstelacao().getNome() + "," +
@@ -105,6 +114,23 @@ public abstract class Saint {
             this.status + "," +
             this.genero + "," +
             this.armaduraVestida;                   
-        return resultado;
+        return resultado;*/
+    }
+    
+    public void adicionarMovimento(Movimento movimento) {
+        this.movimentos.add(movimento);
+    }
+    
+    public Movimento getProximoMovimento() {
+        int posicao = this.acumuladorProximoMovimento % this.movimentos.size();
+        this.acumuladorProximoMovimento++;
+        return movimentos.get(posicao);
+    }
+    
+
+    // "agendando" execução do golpe no saint passado por parâmetro
+    // o golpe de fato só será executado na batalha.
+    public void golpear(Saint golpeado) {
+        this.adicionarMovimento(new Golpear(this, golpeado));
     }
 }
