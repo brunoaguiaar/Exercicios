@@ -10,13 +10,23 @@ public abstract class Saint {
     private double vida = 100.0;
     protected int sentidosDespertados = 5;
     private ArrayList<Movimento> movimentos = new ArrayList<>();
-    private int golpeAtual, acumuladorProximoMovimento = 0;;
+    private int golpeAtual, acumuladorProximoMovimento = 0;
+    private static int qtdSaints = 0;
 
     protected Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
+        Saint.qtdSaints++;
     }
 
+    protected void finalise() throws Throwable {
+        Saint.qtdSaints--;
+    }
+    
+    public static int getQtdSaints() {
+        return Saint.qtdSaints;
+    }
+    
     public String getNome(){
         return this.nome;
     }
