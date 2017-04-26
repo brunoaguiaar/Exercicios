@@ -5,18 +5,16 @@ import org.junit.Test;
 
 public class SorteDoDiaTest{
     @Test
-    public void jogarODadoEOResultadoSerVerdadeiro(){
-        SorteDoDia sorte = new SorteDoDia(new DadoD6());
-        boolean sortudo = false;
-        
-        for (int i=0; i < 100; i++){
-            if (sorte.estouComSorte() == true){
-                sortudo = true;
-            } else {
-                sortudo = false;
-            }
-        }
-        
-        assertEquals(true, sortudo);
+    public void estouComSorte(){
+        Sorteador sorteador = new DadoFalso(2);
+        SorteDoDia sorte = new SorteDoDia(sorteador);
+        assertTrue(sorte.estouComSorte());
+    }
+    
+    @Test
+    public void estouSemSorte() {
+        Sorteador sorteador = new DadoFalso(1);
+        SorteDoDia sorte = new SorteDoDia(sorteador);
+        assertFalse(sorte.estouComSorte());
     }
 }
