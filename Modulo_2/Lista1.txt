@@ -1,0 +1,44 @@
+
+1) exercicio 1
+	select *
+	into cidadeaux
+	from cidade
+
+
+	select * from cidadeaux
+2) exercicio 2
+	truncate table cidadeaux
+	select UF from cidade where UF = 'RS'
+
+	insert into cidadeaux(IDCidade, Nome, UF)
+	select IDcidade, Nome, UF from cidade
+	where cidade.uf = 'rs'
+	
+
+3) exercicio 3
+create table Produto
+(
+	IDproduto           int	IDENTITY   not null,
+	NomeCurto           varchar(10)    not null,
+	NomeDescritivo		varchar(50),
+	DataCriacao			date default (getdate()),
+	LocalEstoque		varchar(30),
+	Quantidade			int,
+	PrecoProd			float		   not null,	
+		constraint PK_Produto primary key (IDproduto)
+)
+
+
+4) exercicio 4
+insert into produto (NomeCurto, NomeDescritivo, LocalEstoque,
+					 Quantidade, PrecoProd)
+					values('mochila', 'mochila do sninha', 'prateleira 15 segundo andar', 20, 65.70)
+insert into produto (NomeCurto, NomeDescritivo, LocalEstoque,
+					 Quantidade, PrecoProd)
+					values('bola', 'bola do ben 10', 'prateleira 33 primeir andar', 18, 22.50)
+
+select * from produto
+
+-- 103 = dd/mm/aa
+
+select convert (datetime, '13/05/2017', 103)
