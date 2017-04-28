@@ -23,4 +23,16 @@
 		   from empregado where (salario * 13) < 18500 or Cargo = 'atendente'
 	
 
-	
+
+
+
+
+
+	select * from empregado order by salario 
+	select avg (salario) from empregado
+
+	select cargo, iddepartamento from empregado
+	select distinct cargo, iddepartamento from empregado
+
+	select count(distinct cargo) CargosDistintos
+	from empregado
