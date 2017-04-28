@@ -1,0 +1,26 @@
+
+1) exercicio 1
+
+	select IDEmpregado, NomeEmpregado from empregado
+	order by DataAdmissao
+
+2) exercicio 2
+	
+	select IDEmpregado, NomeEmpregado, comissao = 'not null' from empregado
+	order by Salario
+
+3) exercicio 3 
+
+	select IDEmpregado, NomeEmpregado,
+		   (salario * 13) as SalarioAnual,
+		   (Comissao * 12) as ComissaoAnual,
+		   (salario * 13 + Comissao * 12) as RendaAnual
+		   from empregado
+
+4) exercicio 4
+	select IDEmpregado, NomeEmpregado,
+		   Cargo, Salario
+		   from empregado where (salario * 13) < 18500 or Cargo = 'atendente'
+	
+
+	
