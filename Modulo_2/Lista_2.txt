@@ -36,3 +36,37 @@
 
 	select count(distinct cargo) CargosDistintos
 	from empregado
+
+
+	
+	select IDdepartamento,
+			count(1) as totalempregado
+	from empregado
+	--where
+	group by IDdepartamento
+	--order by
+
+
+	select Cargo
+		count(1) as totalempregado
+	from empregado
+	--where
+	group by Cargo
+	--order by totalempregado desc
+
+
+	select Cargo, IDdepartamento,
+		count(1) as totalempregado
+	from empregado
+	--where
+	group by Cargo, IDdepartamento
+	--order by totalempregado desc
+
+
+	select Cargo, IDdepartamento,
+		count(1) as totalempregado
+	from empregado
+	--where cargo = 'atendente'
+	group by Cargo, IDdepartamento
+	--order by totalempregado desc
+	having count(1) > 1
