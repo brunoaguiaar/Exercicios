@@ -1,0 +1,70 @@
+/*1 Liste o nome do empregado, o nome do gerente e o departamento de cada um.*/
+select emp.NomeEmpregado,
+	   emp.IDDepartamento,
+	   dE.NomeDepartamento,
+	   ger.NomeEmpregado as NomeGerente,
+	   ger.IDDepartamento,
+	   dG.NomeDepartamento
+	   from Empregado emp
+	   inner join Empregado ger on emp.IDGerente = ger.IDEmpregado
+	   left join Departamento dE on emp.IDDepartamento = dE.IDDepartamento
+	   left join Departamento dG on ger.IDDepartamento = dG.IDDepartamento
+
+
+select * from empregado
+
+/*2 Liste o deparamento (id e nome) com o empregado de maior salário.*/
+
+select top 1 dep.IDDepartamento, 
+	   dep.NomeDepartamento 
+	   from Departamento dep
+	   left join Empregado emp on emp.IDDepartamento = dep.IDDepartamento
+	   where emp.Salario = (select MAX(Salario) from Empregado where IDDepartamento is not null)
+
+
+select * from Departamento
+
+/*3 Aplique uma alteração salarial em todos os empregados que o departamento fique na 
+localidade de SAO PAULO, este reajuste deve ser de 17,3%. Por segurança faça uma cópia
+da tabela Empregado antes de iniciar esta tarefa.*/
+
+select *
+	into EmpregadoCopy
+	from Empregado
+
+select * from empregadocopy
+
+update Empregado
+	   set Empregado.Salario = e.Salario * 1.173
+	   from Empregado e 
+	   inner join Departamento d on e.IDDepartamento = d.IDDepartamento
+	   and d.Localizacao = 'sao paulo'
+
+select * from empregado e 
+inner join Departamento d on e.IDDepartamento = d.IDDepartamento
+	   and d.Localizacao = 'sao paulo'
+
+
+/*4 Liste todas as cidades duplicadas (nome e UF iguais).*/
+
+select Nome, UF 
+from cidade
+group by Nome, UF 
+having count(*) > 1
+order by Nome
+
+/*Faça uma alteraçao nas cidades que tenham nome+UF duplicados,
+adicione no final do nome um asterisco. Mas atenção!
+Apenas a cidade com maior ID deve ser alterada.*/
+
+update cid
+    set cid.Nome = cid.Nome + '*'
+    from Cidade cid
+    inner join Cidade UF on UF.idCidade != cid.IDCidade
+    and UF.Nome = cid.Nome
+    and UF.UF = cid.UF
+    where cid.IDCidade > UF.IDCidade
+
+select IDCidade, Nome, UF 
+from Cidade
+order by Nome
