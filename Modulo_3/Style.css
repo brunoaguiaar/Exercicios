@@ -6,7 +6,17 @@ body{
 	background-image: url(http://augustocury.com.br/images/noticias/Livro-OHMIDH.jpg) ;
 	background-repeat: no-repeat;
 	background-size: 100%;
+	height: 100vh;
+}
+div{
+	width: 20%;
+	display: line-block;
 }
 p{
 	font-size: 24pz;
+	width: 100%;
+	display: inline-block;
+	text-align: justify;
+	text-indent: 20px;
+	
 }
