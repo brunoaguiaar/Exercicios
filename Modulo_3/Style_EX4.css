@@ -21,4 +21,5 @@ img{
 
 .caixa:hover{
   height: 40%;
+  display: block;
 }
