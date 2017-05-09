@@ -1,0 +1,24 @@
+.silvio{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+img{
+  float: left;
+}
+.caixa{
+  position: absolute;
+  bottom: 0%;
+  height: 16%;
+  padding: 10px 20px;
+  background: rgba(0, 191, 255, 0.5);
+}
+.texto{
+  color: white;
+  text-align: justify;
+}
+
+.caixa:hover{
+  height: 40%;
+}
