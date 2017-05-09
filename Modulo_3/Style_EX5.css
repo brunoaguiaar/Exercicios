@@ -1,0 +1,29 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+}
+
+.fundo{
+  position: absolute;
+  position: fixed;
+  width: 100%;
+}
+.opcoes{
+  position: absolute;
+  padding: 1.8% 18%;
+  color: white;
+  background: rgba(225, 225, 255, 0.3);
+  border-radius: 8px;
+  border: 2px solid gray;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inicio{
+  margin: 0;
+  text-align: left;
+}
