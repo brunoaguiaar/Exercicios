@@ -1,29 +1,110 @@
-*{
-  box-sizing: border-box;
-}
-
 body{
-  margin: 0;
+  background-image: url("https://assets.vg247.it/current//2016/02/street-fighter-5-guida-mosse-trucchi.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
-
-.fundo{
-  position: absolute;
-  position: fixed;
-  width: 100%;
-}
+  
 .opcoes{
+  background-color:	rgba(179, 179, 179,0.5);
+  border: 1px solid lightgray;  
+  padding: 0px 30px; 
+  border-radius: 10pt; 
   position: absolute;
-  padding: 1.8% 18%;
-  color: white;
-  background: rgba(225, 225, 255, 0.3);
-  border-radius: 8px;
-  border: 2px solid gray;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 42%;
+  transform: translate(-50%, -50%);  
 }
 
-.inicio{
-  margin: 0;
-  text-align: left;
+.opcoes ul{
+  list-style: none;
+  padding: 0;
 }
+
+.opcoes li{
+  padding: 0px 20px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.opcoes .link{
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+.caixa{
+  position: absolute;
+  top: 55%;
+  left: 24%;
+  right: 24%; 
+}
+
+.caixa .titulo{
+  padding: 20px 10px;
+  color: #e6e6e6;
+  text-align: left;
+  font-size: 26px;
+  background: #4d4d4d;
+  font-weight: bold;
+}
+
+.caixa .conteudo img{
+  float: left;   
+}
+.caixa .conteudo{
+  padding: 10px 15px;
+  background: #e6e6e6;  
+}
+
+.caixa .conteudo h1{
+  font-size: 26px;
+}
+
+.caixa .conteudo ul{
+  font-size: 14px;
+}
+
+.caixa .conteudo p{
+  text-align: justify;
+}
+
+.caixa .conteudo .ficha{
+  font-size: 26px;
+}
+
+.caixa .conteudo .descricao{
+  padding: 0px 10px;
+  text-align: left; 
+  line-height: 20px; 
+  margin-left: 260px;
+}
+
+.caixa .conteudo .sobre{
+  height: 300px;
+  width: 290px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
