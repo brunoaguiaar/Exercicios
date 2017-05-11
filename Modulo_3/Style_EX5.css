@@ -1,4 +1,4 @@
-body{
+﻿body{
   background-image: url("https://assets.vg247.it/current//2016/02/street-fighter-5-guida-mosse-trucchi.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -41,7 +41,7 @@ body{
 }
 
 .caixa .titulo{
-  padding: 20px 10px;
+  padding: 20px 20px;
   color: #e6e6e6;
   text-align: left;
   font-size: 26px;
@@ -54,7 +54,7 @@ body{
 }
 .caixa .conteudo{
   padding: 10px 15px;
-  background: #e6e6e6;  
+  background: #e6e6e6;
 }
 
 .caixa .conteudo h1{
@@ -83,6 +83,16 @@ body{
 .caixa .conteudo .sobre{
   height: 300px;
   width: 290px;
+}
+
+.caixa .conteudo b{
+  float: left;
+}
+
+.caixa .conteudo .dentro{
+  padding: 10px 15px;
+  background: #e6e6e6;
+  height: 570px;
 }
 
 
