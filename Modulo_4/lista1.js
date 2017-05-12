@@ -54,3 +54,24 @@ function fibonacci(n){
     }
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
+function fiboSum(n){
+  if(n === 1){
+    return 1;
+  }
+  return fibonacci(n) + fiboSum(n - 1);
+}
+
+//6
+
+function queroCafe(mascada, precos){
+  var precosNoOrcamento = [];
+  precos.forEach(p =>{
+    if(p <= mascada){
+      precosNoOrcamento.push(p);
+    }
+  });
+  precosNoOrcamento.sort( (a,b) => a-b )
+  return precosNoOrcamento.toString();
+}
+
+queroCafe(3.14, [ 5.16, 2.12, 1.15, 3.11, 17.5 ]);
