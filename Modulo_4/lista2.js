@@ -2,10 +2,16 @@
 function seriesInvalidas(series){
   invalidas = new Array;
   var date = new Date();
+  
+  var verificaInvalida = function(serie){
+    for(var valor in serie) {
+      if(typeof serie[valor] === "undefined" || serie[valor] === null){
+        return true;
+      }
+    }
+  }
   for (let i=0; i<series.length; i++){
-    if(series[i].anoEstreia > date.getFullYear() ||
-    Object.values(series[i]) === "undefined" ||
-    Object.values(series[i]) === "null"){
+    if(series[i].anoEstreia > date.getFullYear() || verificaInvalida(series[i])){
       invalidas.push(series[i].titulo);
     }
   }
