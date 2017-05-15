@@ -2,10 +2,10 @@
 function seriesInvalidas(series){
   invalidas = new Array;
   var date = new Date();
-  for (let i=0; i<series.legth; i++){
-    if(series[i].anoEstreia > data.getFullYear() ||
-    Object.values(series[1]) === "undefined" ||
-    Object.values(series[1]) === "null"){
+  for (let i=0; i<series.length; i++){
+    if(series[i].anoEstreia > date.getFullYear() ||
+    Object.values(series[i]) === "undefined" ||
+    Object.values(series[i]) === "null"){
       invalidas.push(series[i].titulo);
     }
   }
