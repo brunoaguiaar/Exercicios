@@ -1,0 +1,13 @@
+body{
+  background-image: url("https://s.aficionados.com.br/imagens/pokemon-go-dicas-e-alertas-para-se-divertir-em-seguranca_f.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.container{
+  width: auto;
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+}
