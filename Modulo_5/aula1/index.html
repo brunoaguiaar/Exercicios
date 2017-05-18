@@ -15,15 +15,17 @@
       <input type="text" ng-model="pokemon.tipo">
       <hr>
       <h1>Nome: {{ pokemon.nome }} </h1>
-      <h1>Tipo: {{ pokemon.tipo }}</h1>
+      <h1>Tipo: {{ pokemon.tipo }} </h1>
     </div>
     <div ng-controller="Exemplo2">
-      <label>Nome para pesquisa</label>
-      <input type="text" ng-model="pokemon.nome">
-      <ul ng-repeat="pokemon in pokemons | filter: {nome: pokemon.nome}}">
+      <label>Nome para pesquisa: </label>
+      <input type="text" ng-model="search.nome">
+      <table id="searchTextResults">
+      <ul ng-repeat="pokemon in pokemons | filter:search">
         <li>Nome: {{ pokemon.nome }} </li>
-        <li>Tipo: {{ pokemon.tipo }}</li>
+        <li>Tipo: {{ pokemon.tipo }} </li>
       </ul>
+      </table>
     </div>
   </body>
 </html>

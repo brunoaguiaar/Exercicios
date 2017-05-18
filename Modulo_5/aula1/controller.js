@@ -8,7 +8,7 @@ modulo.controller('Exemplo1', function($scope, $rootScope) {
 });
 
 modulo.controller('Exemplo2', function($scope, $rootScope) {
-  $scope.pokemon = [
+  $scope.pokemons = [
   {
     nome: 'Bulbasaur',
     tipo: 'Água '
