@@ -2,7 +2,7 @@ var modulo = angular.module('aula02-2', []);
 
 modulo.filter('mascada', function(){
   return function(nome){
-    return nome.replace(/nunes/i, '$ Nunes $');
+    return nome.replace(/(nunes)/i, '$ $1 $');
   }
 })
 
