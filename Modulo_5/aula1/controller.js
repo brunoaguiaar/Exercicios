@@ -20,5 +20,33 @@ modulo.controller('Exemplo2', function($scope, $rootScope) {
   {
     nome: 'Ekans',
     tipo: 'Veneno'
+  },
+  {
+    nome: 'Pikachu',
+    tipo: 'Raio'
+  },
+  {
+    nome: 'Wartortle',
+    tipo: 'Água'
+  },
+  {
+    nome: 'Metapod',
+    tipo: 'Inseto'
+  },
+  {
+    nome: 'Pidgey',
+    tipo: 'Normal'
+  },
+  {
+    nome: 'Vulpix',
+    tipo: 'Fogo'
+  },
+  {
+    nome: 'Meowth',
+    tipo: 'Normal'
+  },
+  {
+    nome: 'Psyduck',
+    tipo: 'Água'
   }]
 });
