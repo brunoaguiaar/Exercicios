@@ -20,7 +20,6 @@
     <div ng-controller="Exemplo2">
       <label>Nome para pesquisa: </label>
       <input type="text" ng-model="search.nome">
-      <table id="searchTextResults">
       <ul ng-repeat="pokemon in pokemons | filter:search">
         <li>Nome: {{ pokemon.nome }} </li>
         <li>Tipo: {{ pokemon.tipo }} </li>
