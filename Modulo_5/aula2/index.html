@@ -8,8 +8,8 @@
   </head>
   <body ng-controller="Exemplo1">
     <label for="data"> Numero da Data: </label>
-    <input type="text" ng-model="data" value="" placeholder="DD/MM/YYYY">
+    <input type="text" ng-model="data" value="" placeholder="DD/MM/YYYY" maxlength="10">
     <button ng-click="saida()"> Click </button>
-    <div> Short data: {{ dataFinal | date:'shortDate' }}</div>
+    <div> Short data: {{ dataFinal | date:'M/d/y EEEE' }}</div>
   </body>
 </html>

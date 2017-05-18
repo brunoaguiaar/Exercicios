@@ -6,4 +6,3 @@ modulo.controller('Exemplo1', function($scope) {
       $scope.dataFinal = new Date(partesData[2], partesData[1] - 1, partesData[0]);
   }
 });
-//01/01/1970 03:06:40
