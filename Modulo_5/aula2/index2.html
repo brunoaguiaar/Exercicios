@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="aula02-2">
+  <head>
+    <meta charset="utf-8">
+    <title>Aula 02</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="controllerind2.js"></script>
+  </head>
+  <body ng-controller="Exemplo2">
+    <label>Instrutores:</label>
+    <ul ng-repeat='instrutor in instrutores'>
+      <li>{{ instrutor.nome | mascada }}</li>
+    </ul>
+  </body>
+</html>
