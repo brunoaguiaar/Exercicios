@@ -13,10 +13,10 @@
   </div>
   <body ng-controller="ExemploController">
     <div class="container">
-      <form novalidade name="meuForm">
+      <form novalidade name="meuForm" ng-submit="incluir(novoNome)">
         <label for="nome">Novo nome: </label>
         <input type="text" name="nome" ng-model="novoNome" required>
-        <button ng-click="incluir(novoNome)">Incluir</button>
+        <button type="submit">Incluir</button>
       </form>
       <h1>Nomes</h1>
       <ul>
