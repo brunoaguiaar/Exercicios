@@ -6,8 +6,30 @@ modulo.filter('mascada', function(){
   }
 })
 
-modulo.controller('Exemplo2', function($scope) {
-  $scope.instrutores = [{
+modulo.filter('nomeAula', function(){
+  return function(aula){
+    return aula.numero.toString().padStart(3, '0') +
+    " - " + aula.nome.toUpperCase();
+  }
+})
+
+modulo.controller('Exemplo2', function($scope,$filter) {
+
+  let instrutores = [{
+    nome: 'Pedro (PHP)',
+    aula: [{
+      numero: 3,
+      nome: 'HTML e CSS'
+    }]
+  },
+  {
+    nome: 'Zanatta',
+    aula: [{
+      numero: 5,
+      nome: 'AngularJS'
+    }]
+  },
+  {
     nome: 'Bernardo',
     aula: [{
         numero: 1,
@@ -25,20 +47,18 @@ modulo.controller('Exemplo2', function($scope) {
       numero: 2,
       nome: 'Banco de Dados I'
     }]
-  },
-  {
-    nome: 'Pedro (PHP)',
-    aula: [{
-      numero: 3,
-      nome: 'HTML e CSS'
-    }]
-  },
-  {
-    nome: 'Zanatta',
-    aula: [{
-      numero: 5,
-      nome: 'AngularJS'
-    }]
   }
 ];
+
+var aulaDosInstrutores = [];
+  for(instrutor of instrutores){
+    for(aulas of instrutor.aula){
+      let retorno = {numero:aulas.numero,nome:aulas.nome,instrutor:instrutor.nome}
+        aulaDosInstrutores.push(retorno);
+    }
+  }
+
+$scope.aulaDosInstrutores = aulaDosInstrutores;
+$scope.instrutores = instrutores;
+
 });

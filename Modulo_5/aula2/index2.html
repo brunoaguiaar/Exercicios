@@ -7,9 +7,29 @@
     <script src="controllerind2.js"></script>
   </head>
   <body ng-controller="Exemplo2">
-    <label>Instrutores:</label>
-    <ul ng-repeat='instrutor in instrutores'>
-      <li>{{ instrutor.nome | mascada }}</li>
-    </ul>
+    <div>
+      <label>Exercicio 1</label><br>
+      <label>Aulas | Instrutores</label>
+      <ul ng-repeat="aulas in aulaDosInstrutores | orderBy: 'numero'">
+        <li>{{ aulas.nome }} | {{ aulas.instrutor }}</li>
+      </ul>
+    </div>
+
+    <div>
+      <label>Exercicio 2</label><br>
+      <label>Instrutores:</label>
+      <ul ng-repeat='instrutor in instrutores'>
+        <li>{{ instrutor.nome | mascada }}</li>
+      </ul>
+    </div>
+
+    <div>
+      <label>Exercicio 3</label><br>
+      <label>Aulas | Instrutores</label>
+      <ul ng-repeat="aulas in aulaDosInstrutores | orderBy: 'numero'">
+        <li>{{ aulas | nomeAula }} | {{ aulas.instrutor | mascada }}</li>
+      </ul>
+    </div>
+
   </body>
 </html>
