@@ -4,24 +4,66 @@
     <meta charset="utf-8">
     <title>Aula 03</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="controlleraula3.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
+  </div>
   <div class="titulo">
     <h1>Aula 3</h1>
     <p>Forms</p>
   </div>
   <body ng-controller="ExemploController">
-    <div class="container">
-      <form novalidade name="meuForm" ng-submit="incluir(novoNome)">
-        <label for="nome">Novo nome: </label>
-        <input type="text" name="nome" ng-model="novoNome" required>
-        <button type="submit">Incluir</button>
-      </form>
-      <h1>Nomes</h1>
-      <ul>
-        <li ng-repeat="n in nomes">{{ n }}</li>
-      </ul>
+    <form novalidade name="meuForm" ng-submit="incluir(novoInstrutor)">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="novoInstrutor.nome">Nome: </label>
+            <input class="form-control" type="text" ng-model="novoInstrutor.nome" minlength="3" maxlength="20" autofocus required placeholder="Ex.: Bruno">
+          </div>
+          <div class="col-md-6">
+            <label for="novoInstrutor.sobrenome">Sobrenome: </label>
+            <input class="form-control" type="text" ng-model="novoInstrutor.sobrenome" maxlength="30" placeholder="Ex.: Aguiar">
+          </div>
+          <div class="col-md-6">
+        		<label for="novoInstrutor.idade">Idade</label><br>
+        		<input class="form-control" type="number" ng-model="novoInstrutor.idade" required placeholder="Ex.: 20">
+            <br>
+          </div>
+          <div class="col-md-6">
+        		<label for="novoInstrutor.email">Email</label><br>
+        		<input class="form-control" type="email" ng-model="novoInstrutor.email" required placeholder="Ex.: bruno.aguiar@cwi.com.br">
+            <br>
+          </div>
+          <div class="col-md-6">
+        		<label for="novoInstrutor.jaDeuAula">Ja deu aula?</label><br>
+              <label>
+                <input type="checkbox" ng-model="novoInstrutor.jaDeuAula">
+              </label>
+            <br>
+          </div>
+          <div class="col-md-6">
+        		<label for="novoInstrutor.aula">Qual aula?</label><br>
+        		<select name="novoInstrutor.aula" class="form-control" ng-model="model.id">
+              <option value="1">OO</option>
+              <option value="2">HTML e CSS</option>
+              <option value="3">Javascript</option>
+              <option value="4">AngularJS</option>
+              <option value="5">Banco de dados I</option>
+            </select>
+          </div>
+          <div class="col-md-6 " >
+            <input class="btn btn-primary" type="submit" value="Enviar">
+          </div>
+        </div>
+        <h1 class="inst">Instrutores</h1>
+        <ul>
+          <li ng-repeat="instrutor in instrutores">
+            {{ instrutor.nome }}
+          </li>
+        </ul>
+      </div>
+    </form>
     </div>
   </body>
 </html>
