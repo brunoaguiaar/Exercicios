@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="aula03">
+  <head>
+    <meta charset="utf-8">
+    <title>Aula 03</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="controlleraula3.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <div class="titulo">
+    <h1>Aula 3</h1>
+    <p>Forms</p>
+  </div>
+  <body ng-controller="ExemploController">
+    <div class="container">
+      <form novalidade name="meuForm">
+        <label for="nome">Novo nome: </label>
+        <input type="text" name="nome" ng-model="novoNome" required>
+        <button ng-click="incluir(novoNome)">Incluir</button>
+      </form>
+      <h1>Nomes</h1>
+      <ul>
+        <li ng-repeat="n in nomes">{{ n }}</li>
+      </ul>
+    </div>
+  </body>
+</html>
