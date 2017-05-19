@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html ng-app="aula02-2">
   <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
     <title>Aula 02</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="controllerind2.js"></script>
   </head>
+  <div class="jumbotron text-center">
+    <h1>Exercicios aula 2</h1>
+    <p>Instrutores</p>
+  </div>
   <body ng-controller="Exemplo2">
-    <div>
-      <label>Exercicio 1</label><br>
-      <label>Aulas | Instrutores</label>
-      <ul ng-repeat="aulas in aulaDosInstrutores | orderBy: 'numero'">
-        <li>{{ aulas.nome }} | {{ aulas.instrutor }}</li>
-      </ul>
+    <div class="container">
+      <div class="col-sm-4">
+        <label>Exercicio 1</label><br>
+        <label>Aulas | Instrutores</label>
+        <ul ng-repeat="aulas in aulaDosInstrutores | orderBy: 'numero'">
+          <li>{{ aulas.nome }} | {{ aulas.instrutor }}</li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <label>Exercicio 2</label><br>
+        <label>Instrutores:</label>
+        <ul ng-repeat='instrutor in instrutores'>
+          <li>{{ instrutor.nome | mascada }}</li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <label>Exercicio 3</label><br>
+        <label>Aulas | Instrutores</label>
+        <ul ng-repeat="aulas in aulaDosInstrutores | orderBy: 'numero'">
+          <li>{{ aulas | nomeAula }} | {{ aulas.instrutor | mascada }}</li>
+        </ul>
+      </div>
     </div>
-
-    <div>
-      <label>Exercicio 2</label><br>
-      <label>Instrutores:</label>
-      <ul ng-repeat='instrutor in instrutores'>
-        <li>{{ instrutor.nome | mascada }}</li>
-      </ul>
-    </div>
-
-    <div>
-      <label>Exercicio 3</label><br>
-      <label>Aulas | Instrutores</label>
-      <ul ng-repeat="aulas in aulaDosInstrutores | orderBy: 'numero'">
-        <li>{{ aulas | nomeAula }} | {{ aulas.instrutor | mascada }}</li>
-      </ul>
-    </div>
-
   </body>
 </html>
