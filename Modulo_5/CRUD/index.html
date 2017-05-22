@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="crud">
+  <head>
+    <title>Trabalho</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="controller.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.min.js"></script>
+    <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css"/>
+    <link <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+     <div class="container" ng-controller="MainController">
+       <h1>Trabalho AngularJS</h1>
+       <hr>
+       <div class="col-md-12">
+          <form class="col-md-6 form-horizontal" name="addAula" novalidate ng-sumbit="addAula()">
+            <div class="col-md-12 form-group">
+              <h2>Adicionar nova aula</h2>
+              <div class="form-group">
+                <label for="novaAula">Nome:</label>
+                <input class="form-control"
+                  type="text"
+                  name="novaAula"
+                  placeholder="Nome da aula"
+                  required
+                  minlength="3"
+                  maxlength="20"
+                  ng-model="novaAula.nome">
+              </div>
+            <div class="form-group">
+              <button class="btn btn-primary form-control" type="submit">Adicionar</button>
+            </div>
+          </div>
+          </form>
+       </div>
+       <div class="col-md-6">
+          <h2>Aulas</h2>
+          <table class="table table-striped">
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Editar</th>
+              <th>Deletar</th>
+            </tr>
+            <tr ng-repeat="aula in aulas | orderBy: 'nome'">
+              <td>{{ aula.id }}</td>
+              <td>{{ aula.nome }}</td>
+              <td><button class="btn btn-warning" ng-click="showAula(aula)"><span class="glyphicon glyphicon-pencil"></button></td>
+              <td><button class="btn btn-danger" ng-click="deletarAula(aula.id)"><span class="glyphicon glyphicon-trash"></button></td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-12">
+          <form class="col-md-6 form-horizontal" name="updateAula" novalidate ng-submit="editarAula()" ng-show="showEditAula">
+            <div class="col-md-12 form-group">
+            <h2>Editar Aula</h2>
+              <label for="editAula">Nome:</label>
+              <input class="form-control" type="text" name="editAula" placeholder="Escolha um novo nome para aula"  required ng-model="editAula.nome">
+            </div>
+            <div class="col-md-12 form-group">
+              <button class="btn btn-primary form-control" type="submit">Editar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+  </body>
+</html>
