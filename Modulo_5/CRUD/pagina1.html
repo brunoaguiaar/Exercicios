@@ -8,11 +8,12 @@
             <div class="form-group">
               <label for="novaAula">Nome:</label>
               <input class="form-control"
+                autofocus
                 type="text"
                 name="novaAula"
                 placeholder="Nome da aula"
                 required
-                minlength="3"
+                minlength="2"
                 maxlength="20"
                 ng-model="novaAula.nome">
             </div>
@@ -31,8 +32,8 @@
                <th>Deletar</th>
              </tr>
              <tr ng-repeat="aula in aulas | orderBy: 'nome'">
-               <td>{{ aula.id }}</td>
-               <td>{{ aula.nome }}</td>
+               <td>{{ aula.id | json }}</td>
+               <td>{{ aula.nome | json }}</td>
                <td><button class="btn btn-warning" ng-click="showAula(aula)"><span class="glyphicon glyphicon-pencil"></button></td>
                <td><button class="btn btn-danger" ng-click="deletarAula(aula.id)"><span class="glyphicon glyphicon-trash"></button></td>
              </tr>
