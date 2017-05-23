@@ -1,54 +1,25 @@
-var modulo = angular.module('crud', ['ngAnimate', 'toastr']);
+var modulo = angular.module('crud', ['ngRoute']);
 
-modulo.controller('MainController', ($scope, toastr) => {
-  let idAula = 0;
-  let idInstrutor = 0;
-  $scope.aulas = [{id: idAula++, nome: 'JAVA'},
-                  {id: idAula++, nome: 'Banco I'},
-                  {id: idAula++, nome: 'HTML & CSS'}];
-  $scope.instrutores = [];
+modulo.config(function ($routeProvider) {
 
-  $scope.addAula = () => {
-    if($scope.addAula.$valid) {
-      $scope.aulas.forEach(item => $scope.addAulaExiste = item.nome === $scope.novaAula.nome);
-      if(!$scope.addAulaExiste){
-        $scope.novaAula.id = idAula++;
-        $scope.aulas.push(angular.copy($scope.novaAula));
-        toastr.success('Aula inserida com sucesso.');
-      } else {
-        toastr.error('Aula já existente.');
-      }
-      $scope.novaAula = {};
-    }
-  }
+  $routeProvider
+    .when('/pagina1', {
+      controller: 'Pagina1Controller',
+      templateUrl: 'pagina1.html'
+    })
+    .when('/pagina2', {
+      controller: 'Pagina2Controller',
+      templateUrl: 'pagina2.html'
+    })
+    .otherwise({
+      redirectTo: '/pagina1'
+    });
+});
 
-  $scope.showAula = (item) => {
-    $scope.editAula = {};
-    $scope.showEditAula = true;
-    $scope.idAulaUpdate = item.id;
-    $scope.editAula.nome = item.nome;
-  }
+app.controller('Pagina1Controller', function ($scope) {
+  $scope.controller = 'Pagina1Controller';
+});
 
-  $scope.editarAula = () => {
-   if($scope.updateAula.$valid) {
-     $scope.aulas.forEach(item => $scope.editAulaExiste = item.nome === $scope.editAula.nome);
-     if(!$scope.editAulaExiste){
-       $scope.aulas.forEach((item) => {
-         if(item.id === Number($scope.idAulaUpdate))
-           item.nome = $scope.editAula.nome;
-       });
-     }
-     $scope.editAula = {};
-     $scope.showEditAula = false;
-   }
- }
-
- $scope.deletarAula = (id) => {
-       $scope.aulaUsada = aulaJaUsada(id);
-       if(!$scope.aulaUsada){
-        $scope.aulas.splice(getIdIndex(id, $scope.aulas), 1);
-       } else {
-         toastr.error('Não é possível excluir esta aula. Aula está sendo usada.');
-       }
-  }
+app.controller('Pagina2Controller', function ($scope) {
+  $scope.controller = 'Pagina2Controller';
 });

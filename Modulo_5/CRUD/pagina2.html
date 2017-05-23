@@ -1,0 +1,99 @@
+<div class="container" ng-controller="MainController">
+  <h1>Instrutores</h1>
+  <hr>
+  <div class="row">
+    <form class="col-md-6 form-horizontal" name="addInstrutor" novalidate ng-sumbit="addInstrutor()">
+     <div class="col-md-12 form-group">
+       <h2>Adicionar novo Instrutor</h2>
+       <div class="form-group">
+         <label for="novoInstrutor">Nome:</label>
+         <input class="form-control"
+           type="text"
+           name="novInstrutor.nome"
+           placeholder="Nome do instrutor"
+           required
+           minlength="3"
+           maxlength="20"
+           ng-model="novoInstrutor.nome">
+         <label for="novoInstrutor">Sobrenome:</label>
+         <input class="form-control"
+           type="text"
+           name="novInstrutor.sobrenome"
+           placeholder="Sobrenome do instrutor"
+           minlength="3"
+           maxlength="20"
+           ng-model="novoInstrutor.sobrenome">
+         <label for="novoInstrutor">Idade:</label>
+         <input class="form-control"
+           type="Number"
+           name="novInstrutor.idade"
+           placeholder="Idade do instrutor"
+           required
+           maxlength="90"
+           ng-model="novoInstrutor.idade">
+         <label for="novoInstrutor">Email:</label>
+         <input class="form-control"
+           type="email"
+           name="novInstrutor.email"
+           placeholder="Email do instrutor"
+           required
+           ng-model="novoInstrutor.email">
+        <label for="novoInstrutor">Dando Aula?</label>
+          <select class="form-control" id="dandoAula">
+          <option value="1">Sim</option>
+          <option value="2">Nao</option>
+          </select>
+        <label for="novoInstrutor">Aula:</label>
+          <select class="form-control" id="aulas">
+          <option value="1">HTML e CSS</option>
+          <option value="1">Orientação a Objeto</option>
+          <option value="1">Banco I</option>
+          <option value="1">JavaScript</option>
+          </select>
+        <label for="novoInstrutor">Foto:</label>
+        <input class="form-control"
+           type="text"
+           name="novInstrutor.url"
+           placeholder="Ex.: http://foto.com/3.png"
+           ng-model="novoInstrutor.url">
+       </div>
+     <div class="form-group">
+       <button class="btn btn-primary form-control" type="submit">Adicionar</button>
+     </div>
+   </div>
+   </form>
+   <div class="col-md-6">
+      <h2>Instrutores</h2>
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Sobrenome</th>
+          <th>Email</th>
+          <th>Dando aula</th>
+          <th>Aula</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        <tr ng-repeat="instrutor in instrutores | orderBy: 'nome'">
+          <td>{{ instrutor.id }}</td>
+          <td>{{ instrutor.nome }}</td>
+          <td><button class="btn btn-warning" ng-click="showAula(aula)"><span class="glyphicon glyphicon-pencil"></button></td>
+          <td><button class="btn btn-danger" ng-click="deletarAula(aula.id)"><span class="glyphicon glyphicon-trash"></button></td>
+        </tr>
+      </table>
+   </div>
+ </div>
+   <div class="row">
+     <form class="col-md-6 form-horizontal" name="updateAula" novalidate ng-submit="editarAula()" ng-show="showEditAula">
+       <div class="col-md-12 form-group">
+       <h2>Editar Instrutor</h2>
+         <label for="editAula">Nome:</label>
+         <input class="form-control" type="text" name="editAula" placeholder="Escolha um novo nome para aula"  required ng-model="editAula.nome">
+       </div>
+       <div class="col-md-12 form-group">
+         <button class="btn btn-primary form-control" type="submit">Editar</button>
+       </div>
+     </form>
+   </div>
+ </div>
