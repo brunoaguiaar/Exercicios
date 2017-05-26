@@ -10,8 +10,9 @@ namespace ExemploWebAPI.Controllers
 {
     public class HeroisController : ApiController
     {
-        public static int idHeroi = 0;
-        public static List<Heroi> herois = new List<Heroi>()
+        private static int idHeroi = 0;
+        private static object objetoLock = new object();
+        private static List<Heroi> herois = new List<Heroi>()
         {
             new Heroi(){Id = ++idHeroi, Nome = "Goku", poder = new Poder(){ Nome = "Genki Dama", Dano = 8000 } },
             new Heroi(){Id = ++idHeroi, Nome = "Ronaldinho", poder = new Poder(){ Nome = "Dibrar", Dano = 10000 } },
@@ -35,9 +36,12 @@ namespace ExemploWebAPI.Controllers
             }
             else
             {
+                lock (objetoLock)
+                {
+                    heroi.Id = ++idHeroi;
+                    herois.Add(heroi);
+                }
                 // Salva no banco de dados
-                heroi.Id = ++idHeroi;
-                herois.Add(heroi);
                 return Ok(heroi);
             }
         }
