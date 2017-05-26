@@ -127,7 +127,10 @@ namespace Repositorio
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
         {
-            throw new NotImplementedException();
+            // Instrutor
+            return this.Funcionarios
+                       .Where(f => f.Idade >= idade - 5 && f.Idade <= idade + 5)
+                       .ToList();
         }
 
         private int CalcularIdade(DateTime dataNascimento)
@@ -137,27 +140,66 @@ namespace Repositorio
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
         {
-            throw new NotImplementedException();
+            // Instrutor
+            return this.Funcionarios
+                        .Where(f => !turno.HasValue || f.TurnoTrabalho == turno.Value)
+                        .Average(f => f.Cargo.Salario); ;
         }
 
         public IList<Funcionario> AniversariantesDoMes()
         {
-            throw new NotImplementedException();
+            // Instrutor
+            int mesAtual = DateTime.Now.Month;
+
+            return this.Funcionarios
+                       .Where(f => f.DataNascimento.Month == mesAtual)
+                       .ToList();
         }
 
         public IList<dynamic> BuscaRapida()
         {
-            throw new NotImplementedException();
+            // Instrutor
+            return this.Funcionarios
+                        .Select(f => (dynamic)new
+                        {
+                            NomeFuncionario = f.Nome,
+                            TituloCargo = f.Cargo.Titulo
+                        })
+                        .ToList();
         }
 
         public IList<dynamic> QuantidadeFuncionariosPorTurno()
         {
-            throw new NotImplementedException();
+            // Instrutor
+            return this.Funcionarios
+                       .GroupBy(funcionario => funcionario.TurnoTrabalho)
+                       .OrderBy(turno => turno.Key)
+                       .Select(grupo =>
+                       (dynamic)new
+                       {
+                           Turno = grupo.Key,
+                           Quantidade = grupo.Count()
+                       }).ToList();
         }
 
         public dynamic FuncionarioMaisComplexo()
         {
-            throw new NotImplementedException();
+            // Instrutor
+            CultureInfo ptCulture = new CultureInfo("pt-BR");
+            CultureInfo entCulture = new CultureInfo("en-US");
+
+            return this.Funcionarios
+                    .Where(f => f.Cargo.Titulo != "Desenvolvedor Júnior" && f.TurnoTrabalho != TurnoTrabalho.Tarde)
+                    .OrderByDescending(f => Regex.Replace(f.Nome, "aouieyAOUIEY", "").Length)
+                    .Select(f =>
+                    new
+                    {
+                        Nome = f.Nome,
+                        DataNascimento = f.DataNascimento.ToString("dd/MM/yyyy"),
+                        SalarioRS = f.Cargo.Salario.ToString("C", ptCulture),
+                        SalarioUS = f.Cargo.Salario.ToString("C", entCulture),
+                        QuantidadeMesmoCargo = this.Funcionarios.Count(c => c.Cargo.Equals(f.Cargo))
+                    }).First();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Repositorio
         public DateTime DataNascimento { get; private set; }
         public TurnoTrabalho TurnoTrabalho { get; set; }
         public Cargo Cargo { get; set; }
+        public int Idade { get; internal set; }
 
         public Funcionario(int id, string nome, DateTime dataNascimento)
         {
