@@ -95,7 +95,7 @@ namespace Repositorio
         public IList<Funcionario> OrdenadosPorCargo()
         {
             var funcionariosOrdenados = from funcionario in Funcionarios
-                                        orderby funcionario.Cargo.Titulo
+                                        orderby funcionario.Cargo.Titulo, funcionario.Nome
                                         select funcionario;
             return funcionariosOrdenados.ToList();
         }
@@ -103,9 +103,9 @@ namespace Repositorio
         public IList<Funcionario> BuscarPorNome(string nome)
         {
             var buscarPorNome = from funcionario in Funcionarios
-                                where funcionario.Nome.Equals(nome)
+                                where funcionario.Nome.Contains(nome)
                                 select funcionario;
-            return buscarPorNome;
+            return buscarPorNome.ToList();
         }        
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
