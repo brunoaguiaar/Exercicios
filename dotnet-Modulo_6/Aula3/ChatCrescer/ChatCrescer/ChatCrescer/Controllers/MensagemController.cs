@@ -8,9 +8,10 @@ using System.Web.Http;
 
 namespace ChatCrescer.Controllers
 {
-    public class ChatController : ApiController
+    public class MensagemController : ApiController
     {
         private static List<Mensagem> mensagens = new List<Mensagem>();
+        private static int Ids = 0;
         private static object @lock = new object();
 
         public IEnumerable<Mensagem> Get()
@@ -28,6 +29,8 @@ namespace ChatCrescer.Controllers
             {
                 lock (@lock)
                 {
+                    mensagem.DataEnvio = DateTime.Now;
+                    mensagem.IdMensagem = ++Ids;
                     mensagens.Add(mensagem);
                 }
 
