@@ -33,7 +33,6 @@ namespace ChatCrescer.Controllers
                     mensagem.IdMensagem = ++Ids;
                     mensagens.Add(mensagem);
                 }
-
                 return Ok(mensagem);
             }
         }
