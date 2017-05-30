@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7F472B3F-64BF-4910-BE45-5B7BEFDD649B}</ProjectGuid>
+    <ProjectGuid>{5E8D0FF2-4AF6-4816-AFBA-B1DF9646376D}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Demo1.WebApi</RootNamespace>
-    <AssemblyName>Demo1.WebApi</AssemblyName>
+    <RootNamespace>EditoraCrescer.Api</RootNamespace>
+    <AssemblyName>EditoraCrescer.Api</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -43,6 +43,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -86,8 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\PedidosController.cs" />
-    <Compile Include="Controllers\ProdutosController.cs" />
+    <Compile Include="Controllers\LivrosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -107,13 +114,9 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Demo1.Dominio\Demo1.Dominio.csproj">
-      <Project>{105172C0-C5F6-4A9E-81DE-C8C7580D9FA8}</Project>
-      <Name>Demo1.Dominio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Demo1.Infraestrutura\Demo1.Infraestrutura.csproj">
-      <Project>{A6CA0DE9-1EB8-48E4-93B3-0BED26970571}</Project>
-      <Name>Demo1.Infraestrutura</Name>
+    <ProjectReference Include="..\EditoraCrescer.Infreaestrutura\EditoraCrescer.Infreaestrutura.csproj">
+      <Project>{16CFAEAB-64C5-457F-BB78-19805B3F322F}</Project>
+      <Name>EditoraCrescer.Infreaestrutura</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -129,9 +132,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>61059</DevelopmentServerPort>
+          <DevelopmentServerPort>49227</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61059/</IISUrl>
+          <IISUrl>http://localhost:49227/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

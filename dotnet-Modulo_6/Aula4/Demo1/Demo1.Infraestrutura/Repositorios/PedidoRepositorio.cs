@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Demo1.Infraestrutura.Repositorios
 {
-    class PedidoRepositorio : IPedidoRepositorio
+    public class PedidoRepositorio : IPedidoRepositorio
     {
         string stringConexao = "Server=13.65.101.67; User Id=bruno.aguiar; Password=123456; Database=aluno15db";
 
