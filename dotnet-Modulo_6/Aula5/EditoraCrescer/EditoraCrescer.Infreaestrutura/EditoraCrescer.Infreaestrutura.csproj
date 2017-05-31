@@ -56,17 +56,9 @@
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
     <Compile Include="Mappings\RevisorMap.cs" />
-    <Compile Include="Migrations\201705301934332_CriacaoDoBanco.cs" />
-    <Compile Include="Migrations\201705301934332_CriacaoDoBanco.Designer.cs">
-      <DependentUpon>201705301934332_CriacaoDoBanco.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705311138594_CriacaoDoBanco1.cs" />
-    <Compile Include="Migrations\201705311138594_CriacaoDoBanco1.Designer.cs">
-      <DependentUpon>201705311138594_CriacaoDoBanco1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705311144534_CriacaoDoBanco2.cs" />
-    <Compile Include="Migrations\201705311144534_CriacaoDoBanco2.Designer.cs">
-      <DependentUpon>201705311144534_CriacaoDoBanco2.cs</DependentUpon>
+    <Compile Include="Migrations\201705311942080_CriacaoDoBancoAgain.cs" />
+    <Compile Include="Migrations\201705311942080_CriacaoDoBancoAgain.Designer.cs">
+      <DependentUpon>201705311942080_CriacaoDoBancoAgain.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,14 +71,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705301934332_CriacaoDoBanco.resx">
-      <DependentUpon>201705301934332_CriacaoDoBanco.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705311138594_CriacaoDoBanco1.resx">
-      <DependentUpon>201705311138594_CriacaoDoBanco1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705311144534_CriacaoDoBanco2.resx">
-      <DependentUpon>201705311144534_CriacaoDoBanco2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705311942080_CriacaoDoBancoAgain.resx">
+      <DependentUpon>201705311942080_CriacaoDoBancoAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
