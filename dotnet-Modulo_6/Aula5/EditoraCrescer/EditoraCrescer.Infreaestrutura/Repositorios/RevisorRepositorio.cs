@@ -1,32 +1,51 @@
-﻿using EditoraCrescer.Infreaestrutura.Entidade;
+﻿using EditoraCrescer.Infraestrutura.Entidade;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EditoraCrescer.Infreaestrutura.Repositorios
+namespace EditoraCrescer.Infraestrutura.Repositorios
 {
-    public class RevisorRepositorio
+    public class RevisorRepositorio : IRepositorio<Revisor>, IDisposable
     {
         private Contexto contexto = new Contexto();
+        private RevisorRepositorio revisorRepositorio = new RevisorRepositorio();
 
-        public List<Revisor> Obter()
+        public List<Revisor> Listar()
         {
             return contexto.Revisores.ToList();
         }
 
-        public void Adicionar(Revisor revisor)
+        public Revisor Obter(int id)
+        {
+            return contexto.Revisores.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public Revisor Criar(Revisor revisor)
         {
             contexto.Revisores.Add(revisor);
             contexto.SaveChanges();
+            return revisor;
         }
 
-        public Revisor Deletar(int Id)
+        public void Deletar(int Id)
         {
             var revisorDeletado = contexto.Revisores.FirstOrDefault(x => x.Id == Id);
             contexto.Revisores.Remove(revisorDeletado);
-            return revisorDeletado;
+        }
+
+        public Revisor Alterar(int id, Revisor revisor)
+        {
+            contexto.Entry(revisor).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
+
+            return Obter(id);
+        }
+
+        public void Dispose()
+        {
+            contexto.Dispose();
         }
     }
 }

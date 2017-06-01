@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EditoraCrescer.Infreaestrutura.Entidade
+namespace EditoraCrescer.Infraestrutura.Entidade
 {
     public class Livro
     {
@@ -15,8 +15,9 @@ namespace EditoraCrescer.Infreaestrutura.Entidade
         public DateTime DataPublicacao { get; set; }
         public int IdAutor { get; set; }
         public Autor Autor { get; set; }
-        public Revisor Revisor { get; set; }
         public int IdRevisor { get; set; }
+        public Revisor Revisor { get; set; }
         public DateTime DataRevisao { get; set; }
+        public string Capa { get; set; }
     }
 }

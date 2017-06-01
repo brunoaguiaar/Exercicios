@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EditoraCrescer.Infreaestrutura.Entidade
+namespace EditoraCrescer.Infraestrutura.Entidade
 {
     public class Autor
     {

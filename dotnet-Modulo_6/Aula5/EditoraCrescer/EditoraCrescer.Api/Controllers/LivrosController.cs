@@ -1,6 +1,6 @@
-﻿using EditoraCrescer.Infreaestrutura;
-using EditoraCrescer.Infreaestrutura.Entidade;
-using EditoraCrescer.Infreaestrutura.Repositorios;
+﻿using EditoraCrescer.Infraestrutura;
+using EditoraCrescer.Infraestrutura.Entidade;
+using EditoraCrescer.Infraestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,46 +19,49 @@ namespace EditoraCrescer.Api.Controllers
         [HttpGet]
         public IHttpActionResult ObterLivros()
         {
-            var livros = repositorio.Obter();
-            return Ok(livros);
+            return Ok(new { dados = repositorio.ListaResumo() });
         }
         [HttpGet]
-        [Route("{isbn} : int")]
+        [Route("{isbn:int}")]
         public IHttpActionResult ObterLivroPorIsbn(int isbn)
         {
-            var livro = repositorio.Obter(isbn);
-            return Ok(livro);
+            return Ok(new { dados = repositorio.Obter(isbn)} );
         }
 
         [HttpGet]
         [Route("{isbn}")]
         public IHttpActionResult ObterLivroPorGenero(string genero)
         {
-            var livro = repositorio.Obter(genero);
-            return Ok(livro);
+            return Ok(new { dados = repositorio.ObterResumo(genero)} );
+        }
+
+        [HttpGet]
+        [Route("lancamentos")]
+        public IHttpActionResult GetLancamentos()
+        {
+            return Ok(repositorio.ObterLancamentosResumidos());
         }
 
         [HttpPost]
         public IHttpActionResult IncluirLivro(Livro livro)
         {
-            repositorio.Adicionar(livro);
-            return Ok();
+            repositorio.Criar(livro);
+            return Ok(new { dados = livro } );
         }
 
         [HttpDelete]
-        [Route("{isbn}")]
-        public IHttpActionResult RemoverLivro(int id)
+        [Route("{isbn:int}")]
+        public IHttpActionResult RemoverLivro(int isbn)
         {
-            repositorio.Deletar(id);
-            return Ok();
+            repositorio.Deletar(isbn);
+            return Ok(new { mensagens = "Deletado com sucesso" });
         }
 
         [HttpPut]
-        [Route("{isbn}")]
-        public IHttpActionResult AlterarLivro(int id, Livro livro)
+        [Route("{isbn:int}")]
+        public IHttpActionResult AlterarLivro(int isbn, Livro livro)
         {
-            repositorio.Alterar(id, livro);
-            return Ok();
+            return Ok(new { dados = repositorio.Alterar(isbn, livro) });
         }
 
 
