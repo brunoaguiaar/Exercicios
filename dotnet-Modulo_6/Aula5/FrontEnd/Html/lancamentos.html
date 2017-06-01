@@ -8,6 +8,29 @@
 </ul>
 
 <h1 class="titulo">Lançamentos</h1>
-  <div class="">
-
+  <div class="container">
+    <div class="col-md-3">
+      <tr ng-repeat="livro in livros | orderBy: 'lancamento'">
+        <td>{{ livro.foto | json }}</td>
+        <td>{{ livro.titulo | json }}</td>
+      </tr>
+    </div>
+    <div class="col-md-3">
+      <tr ng-repeat="livro in livros | orderBy: 'lancamento'">
+        <td>{{ livro.foto | json }}</td>
+        <td>{{ livro.titulo | json }}</td>
+      </tr>
+    </div>
+    <div class="col-md-3">
+      <tr ng-repeat="livro in livros | orderBy: 'lancamento'">
+        <td>{{ livro.foto | json }}</td>
+        <td>{{ livro.titulo | json }}</td>
+      </tr>
+    </div>
+    <div class="col-md-3">
+      <tr ng-repeat="livro in livros | orderBy: 'lancamento'">
+        <td>{{ livro.foto | json }}</td>
+        <td>{{ livro.titulo | json }}</td>
+      </tr>
+    </div>
   </div>
