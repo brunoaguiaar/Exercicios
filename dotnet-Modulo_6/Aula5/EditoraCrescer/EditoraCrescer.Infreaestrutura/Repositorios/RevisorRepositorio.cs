@@ -1,16 +1,16 @@
-﻿using EditoraCrescer.Infraestrutura.Entidade;
+﻿using EditoraCrescer.Infreaestrutura.Entidade;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EditoraCrescer.Infraestrutura.Repositorios
+namespace EditoraCrescer.Infreaestrutura.Repositorios
 {
     public class RevisorRepositorio : IRepositorio<Revisor>, IDisposable
     {
         private Contexto contexto = new Contexto();
-        private RevisorRepositorio revisorRepositorio = new RevisorRepositorio();
+       
 
         public List<Revisor> Listar()
         {
@@ -22,7 +22,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             return contexto.Revisores.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public Revisor Criar(Revisor revisor)
+        public Revisor Adicionar(Revisor revisor)
         {
             contexto.Revisores.Add(revisor);
             contexto.SaveChanges();

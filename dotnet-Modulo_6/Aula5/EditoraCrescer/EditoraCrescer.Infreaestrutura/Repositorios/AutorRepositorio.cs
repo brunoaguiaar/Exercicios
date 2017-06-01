@@ -1,11 +1,11 @@
-﻿using EditoraCrescer.Infraestrutura.Entidade;
+﻿using EditoraCrescer.Infreaestrutura.Entidade;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EditoraCrescer.Infraestrutura.Repositorios
+namespace EditoraCrescer.Infreaestrutura.Repositorios
 {
     public class AutorRepositorio : IRepositorio<Autor>, IDisposable
     {
@@ -22,7 +22,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             return contexto.Autores.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public Autor Criar(Autor autor)
+        public Autor Adicionar(Autor autor)
         {
             contexto.Autores.Add(autor);
             contexto.SaveChanges();

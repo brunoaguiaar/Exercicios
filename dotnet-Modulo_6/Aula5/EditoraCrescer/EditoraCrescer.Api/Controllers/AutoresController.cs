@@ -1,5 +1,5 @@
-﻿using EditoraCrescer.Infraestrutura.Entidade;
-using EditoraCrescer.Infraestrutura.Repositorios;
+﻿using EditoraCrescer.Infreaestrutura.Entidade;
+using EditoraCrescer.Infreaestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +35,7 @@ namespace EditoraCrescer.Api.Controllers
         [HttpPost]
         public IHttpActionResult Adicionar(Autor autor)
         {
-            return Ok(new { dados = repositorio.Criar(autor) });
+            return Ok(new { dados = repositorio.Adicionar(autor) });
         }
 
         [HttpPut]

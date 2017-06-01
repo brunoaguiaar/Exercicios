@@ -116,9 +116,9 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EditoraCrescer.Infreaestrutura\EditoraCrescer.Infraestrutura.csproj">
+    <ProjectReference Include="..\EditoraCrescer.Infreaestrutura\EditoraCrescer.Infreaestrutura.csproj">
       <Project>{16cfaeab-64c5-457f-bb78-19805b3f322f}</Project>
-      <Name>EditoraCrescer.Infraestrutura</Name>
+      <Name>EditoraCrescer.Infreaestrutura</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

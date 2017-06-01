@@ -1,5 +1,5 @@
-﻿using EditoraCrescer.Infraestrutura.Entidade;
-using EditoraCrescer.Infraestrutura.Mappings;
+﻿using EditoraCrescer.Infreaestrutura.Entidade;
+using EditoraCrescer.Infreaestrutura.Mappings;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EditoraCrescer.Infraestrutura
+namespace EditoraCrescer.Infreaestrutura
 {
     public class Contexto : DbContext
     {
-        public Contexto() : base("name=ExemploEFSP")
+        public Contexto() : base("ExemploEFSP")
         {  }
 
         public DbSet<Autor> Autores { get; set; }

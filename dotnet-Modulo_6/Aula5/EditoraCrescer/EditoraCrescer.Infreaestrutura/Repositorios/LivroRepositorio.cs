@@ -1,11 +1,11 @@
-﻿using EditoraCrescer.Infraestrutura.Entidade;
+﻿using EditoraCrescer.Infreaestrutura.Entidade;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EditoraCrescer.Infraestrutura.Repositorios
+namespace EditoraCrescer.Infreaestrutura.Repositorios
 {
     public class LivroRepositorio : IRepositorio<Livro>, IDisposable
     { 
@@ -75,7 +75,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                 })
                 .ToList();
         }
-        public Livro Criar(Livro livro)
+        public Livro Adicionar(Livro livro)
         {
             contexto.Livros.Add(livro);
             contexto.SaveChanges();

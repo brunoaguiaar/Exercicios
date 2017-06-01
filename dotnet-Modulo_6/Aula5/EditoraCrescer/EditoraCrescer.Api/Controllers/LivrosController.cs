@@ -1,6 +1,6 @@
-﻿using EditoraCrescer.Infraestrutura;
-using EditoraCrescer.Infraestrutura.Entidade;
-using EditoraCrescer.Infraestrutura.Repositorios;
+﻿using EditoraCrescer.Infreaestrutura;
+using EditoraCrescer.Infreaestrutura.Entidade;
+using EditoraCrescer.Infreaestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +45,7 @@ namespace EditoraCrescer.Api.Controllers
         [HttpPost]
         public IHttpActionResult IncluirLivro(Livro livro)
         {
-            repositorio.Criar(livro);
+            repositorio.Adicionar(livro);
             return Ok(new { dados = livro } );
         }
 
