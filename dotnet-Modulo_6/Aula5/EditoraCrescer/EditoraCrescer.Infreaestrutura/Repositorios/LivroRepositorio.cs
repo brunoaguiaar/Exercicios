@@ -9,9 +9,9 @@ namespace EditoraCrescer.Infreaestrutura.Repositorios
 {
     public class LivroRepositorio : IRepositorio<Livro>, IDisposable
     { 
-        private Contexto contexto = new Contexto();
         private AutorRepositorio autorRepositorio = new AutorRepositorio();
         private RevisorRepositorio revisorRepositorio = new RevisorRepositorio();
+        private Contexto contexto = new Contexto();
 
         public List<Livro> Listar()
         {
