@@ -43,8 +43,9 @@ namespace EditoraCrescer.Infreaestrutura.Repositorios
 
         public void Deletar(int Id)
         {
-            var autorDeletado = contexto.Autores.FirstOrDefault(x => x.Id == Id);
-            contexto.Autores.Remove(autorDeletado);
+            var autor = contexto.Autores.FirstOrDefault(x => x.Id == Id);
+            contexto.Autores.Remove(autor);
+            contexto.SaveChanges();
         }
 
         public Autor Alterar(int id, Autor autor)

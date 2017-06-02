@@ -44,6 +44,7 @@ namespace EditoraCrescer.Api.Controllers
             return Ok(new { dados = repositorio.Alterar(id, autor) });
         }
 
+        [HttpDelete]
         public IHttpActionResult Remove(int id)
         {
             repositorio.Deletar(id);
