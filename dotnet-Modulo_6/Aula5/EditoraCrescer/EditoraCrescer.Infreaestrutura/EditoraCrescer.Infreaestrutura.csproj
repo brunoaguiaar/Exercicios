@@ -51,8 +51,11 @@
   <ItemGroup>
     <Compile Include="Contexto.cs" />
     <Compile Include="Entidade\Autor.cs" />
+    <Compile Include="Entidade\EntidadeBasica.cs" />
     <Compile Include="Entidade\Livro.cs" />
+    <Compile Include="Entidade\Permissao.cs" />
     <Compile Include="Entidade\Revisor.cs" />
+    <Compile Include="Entidade\Usuario.cs" />
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
     <Compile Include="Mappings\RevisorMap.cs" />
@@ -70,6 +73,7 @@
     <Compile Include="Repositorios\IRepositorio.cs" />
     <Compile Include="Repositorios\LivroRepositorio.cs" />
     <Compile Include="Repositorios\RevisorRepositorio.cs" />
+    <Compile Include="Repositorios\UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
