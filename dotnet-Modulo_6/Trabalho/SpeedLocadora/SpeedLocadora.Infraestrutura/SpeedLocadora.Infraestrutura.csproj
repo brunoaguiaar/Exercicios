@@ -58,6 +58,8 @@
     <Compile Include="Entidade\Console.cs" />
     <Compile Include="Entidade\EntidadeBasica.cs" />
     <Compile Include="Entidade\Jogo.cs" />
+    <Compile Include="Entidade\Locacao.cs" />
+    <Compile Include="Entidade\Pacote.cs" />
     <Compile Include="Entidade\Permissao.cs" />
     <Compile Include="Entidade\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
