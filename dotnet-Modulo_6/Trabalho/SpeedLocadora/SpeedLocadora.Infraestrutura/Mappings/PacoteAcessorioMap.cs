@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace SpeedLocadora.Infraestrutura.Mappings
 {
-    class VideoGameMap : EntityTypeConfiguration<VideoGame>
+    class PacoteAcessorioMap : EntityTypeConfiguration<PacoteAcessorio>
     {
-        public VideoGameMap()
+        public PacoteAcessorioMap()
         {
-            ToTable("VideoGames");
-
-            HasKey(x => x.IdVideoGame);
+            HasRequired(x => x.Pacote)
+                .WithMany()
+                .Map(x => x.MapKey("IdPacote"));
 
             HasRequired(x => x.Acessorio)
                 .WithMany()

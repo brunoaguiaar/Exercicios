@@ -53,15 +53,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto.cs" />
-    <Compile Include="Entidade\Acessorio.cs" />
-    <Compile Include="Entidade\Cliente.cs" />
-    <Compile Include="Entidade\Console.cs" />
-    <Compile Include="Entidade\EntidadeBasica.cs" />
-    <Compile Include="Entidade\Jogo.cs" />
-    <Compile Include="Entidade\Locacao.cs" />
-    <Compile Include="Entidade\Pacote.cs" />
-    <Compile Include="Entidade\Permissao.cs" />
-    <Compile Include="Entidade\Usuario.cs" />
+    <Compile Include="Mappings\AcessorioMap.cs" />
+    <Compile Include="Mappings\ClienteMap.cs" />
+    <Compile Include="Mappings\LocacaoMap.cs" />
+    <Compile Include="Mappings\PacoteAcessorioMap.cs" />
+    <Compile Include="Mappings\PacoteMap.cs" />
+    <Compile Include="Mappings\UsuarioMap.cs" />
+    <Compile Include="Mappings\VideoGameMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,7 +67,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mappings\" />
     <Folder Include="Repositorios\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
