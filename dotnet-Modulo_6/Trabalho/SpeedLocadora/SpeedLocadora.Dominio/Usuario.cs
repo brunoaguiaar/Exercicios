@@ -1,21 +1,23 @@
-﻿using AutDemo.Dominio.Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace SpeedLocadora.Infraestrutura.Entidade
+namespace SpeedLocadora.Dominio
 {
     public class Usuario : EntidadeBasica
     {
-        public int IdUsuario { get; set; }
+
+        static readonly char[] _caracteresNovaSenha = "abcdefghijklmnopqrstuvwxyz1234567890*-_".ToCharArray();
+        static readonly int _numeroCaracteresNovaSenha = 10;
+
+        public Guid IdUsuario { get; private set; }
         public string NomeUsuario { get; private set; }
         public string Username { get; private set; }
         public string Senha { get; private set; }
-        public string Cargo { get; set; }
+        public string Cargo { get; private set; }
         public List<Permissao> Permissoes { get; private set; }
+
 
         protected Usuario()
         {
@@ -29,7 +31,7 @@ namespace SpeedLocadora.Infraestrutura.Entidade
             if (!string.IsNullOrWhiteSpace(senha))
                 Senha = CriptografarSenha(senha);
             Permissoes = new List<Permissao>();
-            AtribuirPermissoes("Colaborador");
+            AtribuirPermissoes("Gerente");
         }
 
         public string ResetarSenha()

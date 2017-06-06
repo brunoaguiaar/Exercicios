@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpeedLocadora.Infraestrutura.Entidade
+namespace SpeedLocadora.Dominio
 {
     public class Cliente
     {

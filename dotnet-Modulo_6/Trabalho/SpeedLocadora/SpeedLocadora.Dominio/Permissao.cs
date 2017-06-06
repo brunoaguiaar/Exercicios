@@ -1,4 +1,4 @@
-﻿namespace AutDemo.Dominio.Entidades
+﻿namespace SpeedLocadora.Dominio
 {
     public class Permissao
     {

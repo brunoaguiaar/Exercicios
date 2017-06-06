@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpeedLocadora.Infraestrutura.Entidade
+namespace SpeedLocadora.Dominio
 {
-    public class Console
+    public class VideoGame
     {
-        public int IdConsole { get; set; }
-        public string NomeConsole { get; set; }
+        public int IdVideoGame { get; set; }
+        public string NomeVideoGame { get; set; }
         public int Quantidade { get; set; }
         public double Valor { get; set; }
         public Acessorio Acessorio { get; set; }
-        public Jogo Jogo { get; set; }
     }
 }

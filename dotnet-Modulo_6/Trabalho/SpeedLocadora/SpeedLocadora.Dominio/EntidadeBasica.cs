@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AutDemo.Dominio.Entidades
+namespace SpeedLocadora.Dominio
 {
     public abstract class EntidadeBasica
     {
