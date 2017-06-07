@@ -14,11 +14,15 @@ namespace SpeedLocadora.Infraestrutura.Mappings
         {
             ToTable("PacoteAcessorio");
 
-            HasKey(x => x.IdLocacaoAcessorio);
+            HasKey(x => x.Id);
 
-            HasRequired(x => x.Locacao);
+            HasRequired(x => x.Locacao)
+                .WithMany(p => p.Acessorios)
+                .Map(x => x.MapKey("IdLocacao"));
 
-            HasRequired(x => x.Acessorio);
+            HasRequired(x => x.Acessorio)
+                .WithMany(p => p.Locacoes)
+                .Map(x => x.MapKey("IdAcessorio"));
         }
     }
 }

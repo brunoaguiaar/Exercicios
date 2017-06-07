@@ -8,7 +8,7 @@ namespace Dominio.Entidades
 {
     public class LocacaoAcessorio : EntidadeBasica
     {
-        public int IdLocacaoAcessorio { get; set; }
+        public int Id { get; set; }
         public Locacao Locacao { get; set; }
         public Acessorio Acessorio { get; set; }
         public int Quantidade { get; set; }

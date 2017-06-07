@@ -8,16 +8,17 @@ namespace Dominio.Entidades
 {
     public class Locacao : EntidadeBasica
     {
-        public int IdLocacao { get; private set; }
-        public DateTime DataLocacao { get; private set; }
-        public DateTime DataEntrega { get; private set; }
-        public DateTime PrevisaoEntrega { get; private set; }
-        public double PrecoFinal { get; private set; }
-        public double PrecoPrevisto { get; private set; }
-        public PacoteAcessorio PacoteAcessorios { get; private set; }
-        public VideoGame VideoGame { get; private set; }
-        public Usuario Usuario { get; private set; }
-        public Cliente Cliente { get; private set; }
+        public int IdLocacao { get; set; }
+        public DateTime DataLocacao { get; set; }
+        public DateTime DataEntrega { get; set; }
+        public DateTime PrevisaoEntrega { get; set; }
+        public double PrecoFinal { get; set; }
+        public double PrecoPrevisto { get; set; }
+        public PacoteAcessorio PacoteAcessorios { get; set; }
+        public VideoGame VideoGame { get; set; }
+        public Usuario Usuario { get; set; }
+        public Cliente Cliente { get; set; }
+        public virtual List<LocacaoAcessorio> Acessorios { get; set; }
 
         public Locacao()
         {

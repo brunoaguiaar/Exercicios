@@ -1,5 +1,4 @@
 ﻿using Dominio.Entidades;
-using SpeedLocadora.Dominio;
 using SpeedLocadora.Infraestrutura.Mappings;
 using System;
 using System.Collections.Generic;
@@ -20,7 +19,8 @@ namespace SpeedLocadora.Infraestrutura
         public DbSet<Acessorio> Acessorios { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Permissao> Permissoes { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Locacao> Locacoes { get; set; }
+        public DbSet<Pacote> Pacotes { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -29,7 +29,9 @@ namespace SpeedLocadora.Infraestrutura
             modelBuilder.Configurations.Add(new ClienteMap());
             modelBuilder.Configurations.Add(new AcessorioMap());
             modelBuilder.Configurations.Add(new UsuarioMap());
-            modelBuilder.Configurations.Add(new UsuarioMap());
+            modelBuilder.Configurations.Add(new PermissaoMap());
+            modelBuilder.Configurations.Add(new LocacaoMap());
+            modelBuilder.Configurations.Add(new PacoteMap());
         }
 
     }

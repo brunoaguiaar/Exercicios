@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedLocadora.api", "SpeedLocadora.api\SpeedLocadora.api.csproj", "{38739584-2A8E-45A0-A7F2-BD31E09BF2A8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedLocadora.Dominio", "SpeedLocadora.Dominio\SpeedLocadora.Dominio.csproj", "{B81DC941-68E0-4492-8C04-7D734D7F8EC9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedLocadora.Infraestrutura", "SpeedLocadora.Infraestrutura\SpeedLocadora.Infraestrutura.csproj", "{B41ABF07-5E43-46B7-B2E1-A5E627B1B84B}"
 EndProject
@@ -21,10 +19,6 @@ Global
 		{38739584-2A8E-45A0-A7F2-BD31E09BF2A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38739584-2A8E-45A0-A7F2-BD31E09BF2A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38739584-2A8E-45A0-A7F2-BD31E09BF2A8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B81DC941-68E0-4492-8C04-7D734D7F8EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B81DC941-68E0-4492-8C04-7D734D7F8EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B81DC941-68E0-4492-8C04-7D734D7F8EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B81DC941-68E0-4492-8C04-7D734D7F8EC9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B41ABF07-5E43-46B7-B2E1-A5E627B1B84B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B41ABF07-5E43-46B7-B2E1-A5E627B1B84B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B41ABF07-5E43-46B7-B2E1-A5E627B1B84B}.Release|Any CPU.ActiveCfg = Release|Any CPU
