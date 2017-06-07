@@ -1,4 +1,4 @@
-﻿using SpeedLocadora.Dominio;
+﻿using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SpeedLocadora.Infraestrutura.Mappings
 {
-    class ClienteMap : EntityTypeConfiguration<Cliente>
+    public class ClienteMap : EntityTypeConfiguration<Cliente>
     {
         public ClienteMap()
         {

@@ -1,4 +1,4 @@
-﻿using SpeedLocadora.Dominio;
+﻿using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -8,17 +8,13 @@ using System.Threading.Tasks;
 
 namespace SpeedLocadora.Infraestrutura.Mappings
 {
-    class VideoGameMap : EntityTypeConfiguration<VideoGame>
+    public class VideoGameMap : EntityTypeConfiguration<VideoGame>
     {
         public VideoGameMap()
         {
-            ToTable("VideoGames");
+            ToTable("VideoGame");
 
             HasKey(x => x.IdVideoGame);
-
-            HasRequired(x => x.Acessorio)
-                .WithMany()
-                .Map(x => x.MapKey("IdAcessorio"));
         }
     }
 }

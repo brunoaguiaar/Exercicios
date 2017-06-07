@@ -4,14 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpeedLocadora.Dominio
+namespace Dominio.Entidades
 {
-    public class Pacote
+    public class Pacote : EntidadeBasica
     {
         public int IdPacote { get; set; }
         public string Tipo { get; set; }
         public double Valor { get; set; }
         public VideoGame VideoGame { get; set; }
         public Acessorio Acessorio { get; set; }
+
+        public Pacote()
+        {
+
+        }
+
+        public override bool Validar()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

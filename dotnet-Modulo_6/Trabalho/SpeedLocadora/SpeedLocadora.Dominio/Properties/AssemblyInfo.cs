@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associada a um assembly.
-[assembly: AssemblyTitle("SpeedLocadora.Infraestrutura")]
+[assembly: AssemblyTitle("SpeedLocadora.Dominio")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SpeedLocadora.Infraestrutura")]
+[assembly: AssemblyProduct("SpeedLocadora.Dominio")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("b41abf07-5e43-46b7-b2e1-a5e627b1b84b")]
+[assembly: Guid("b81dc941-68e0-4492-8c04-7d734d7f8ec9")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //

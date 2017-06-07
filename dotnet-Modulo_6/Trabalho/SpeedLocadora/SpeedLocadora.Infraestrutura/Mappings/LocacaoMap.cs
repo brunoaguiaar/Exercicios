@@ -1,4 +1,4 @@
-﻿using SpeedLocadora.Dominio;
+﻿using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -8,25 +8,29 @@ using System.Threading.Tasks;
 
 namespace SpeedLocadora.Infraestrutura.Mappings
 {
-    class LocacaoMap : EntityTypeConfiguration<Locacao>
+    public class LocacaoMap : EntityTypeConfiguration<Locacao>
     {
         public LocacaoMap()
         {
-            ToTable("Locacoes");
+            ToTable("Locacao");
 
             HasKey(x => x.IdLocacao);
 
-            HasRequired(x => x.Pacote)
+            HasRequired(x => x.Cliente)
                 .WithMany()
-                .Map(x => x.MapKey("IdPacote"));
+                .Map(x => x.MapKey("IdCliente"));
 
-            HasRequired(x => x.Acessorio)
+            HasRequired(x => x.Usuario)
                 .WithMany()
-                .Map(x => x.MapKey("IdAcessorio"));
+                .Map(x => x.MapKey("IdUsuario"));
 
             HasRequired(x => x.VideoGame)
                 .WithMany()
                 .Map(x => x.MapKey("IdVideoGame"));
+
+            HasOptional(x => x.PacoteAcessorios)
+                .WithMany()
+                .Map(x => x.MapKey("IdPacoteAcessorio"));
         }
     }
 }

@@ -4,19 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpeedLocadora.Dominio
+namespace Dominio.Entidades
 {
-    public class Locacao
+    public class Locacao : EntidadeBasica
     {
         public int IdLocacao { get; private set; }
         public DateTime DataLocacao { get; private set; }
         public DateTime DataEntrega { get; private set; }
         public DateTime PrevisaoEntrega { get; private set; }
         public double PrecoFinal { get; private set; }
-        public Pacote Pacote { get; private set; }
-        public Acessorio Acessorio { get; private set; }
+        public double PrecoPrevisto { get; private set; }
+        public PacoteAcessorio PacoteAcessorios { get; private set; }
         public VideoGame VideoGame { get; private set; }
         public Usuario Usuario { get; private set; }
         public Cliente Cliente { get; private set; }
+
+        public Locacao()
+        {
+
+        }
+
+        public override bool Validar()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

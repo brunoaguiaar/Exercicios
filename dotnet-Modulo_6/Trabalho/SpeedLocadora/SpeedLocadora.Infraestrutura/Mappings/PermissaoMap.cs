@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace SpeedLocadora.Infraestrutura.Mappings
 {
-    public class PacoteMap : EntityTypeConfiguration<Pacote>
+    public class PermissaoMap : EntityTypeConfiguration<Permissao>
     {
-        public PacoteMap()
+        public PermissaoMap()
         {
-            ToTable("Pacotes");
+            ToTable("Permissao");
 
-            HasKey(x => x.IdPacote);
+            HasKey(x => x.Id);
         }
     }
 }
