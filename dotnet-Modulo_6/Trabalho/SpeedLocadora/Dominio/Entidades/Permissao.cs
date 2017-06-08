@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio.Entidades
 {
-    public class Permissao : EntidadeBasica
+    public class Permissao
     {
         public string Nome { get; private set; }
         public int Id { get; set; }
@@ -17,11 +17,6 @@ namespace Dominio.Entidades
         public Permissao(string nome)
         {
             Nome = nome;
-        }
-
-        public override bool Validar()
-        {
-            throw new NotImplementedException();
         }
     }
 }

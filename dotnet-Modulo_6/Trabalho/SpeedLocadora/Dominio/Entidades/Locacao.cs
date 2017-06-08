@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio.Entidades
 {
-    public class Locacao : EntidadeBasica
+    public class Locacao
     {
         public int IdLocacao { get; set; }
         public DateTime DataLocacao { get; set; }
@@ -23,11 +23,6 @@ namespace Dominio.Entidades
         public Locacao()
         {
 
-        }
-
-        public override bool Validar()
-        {
-            throw new NotImplementedException();
         }
     }
 }

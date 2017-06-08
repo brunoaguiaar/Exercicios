@@ -104,11 +104,11 @@
     <Compile Include="App_Start\BasicAuthorizationAttribute.cs" />
     <Compile Include="App_Start\ErrosGlobaisFilterAttribute.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AcessorioController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\ControllerBasica.cs" />
     <Compile Include="Controllers\LocacaoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\VideoGameController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

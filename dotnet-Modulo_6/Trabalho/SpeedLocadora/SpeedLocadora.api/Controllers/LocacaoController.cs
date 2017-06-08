@@ -1,4 +1,5 @@
 ﻿using Dominio.Entidades;
+using SpeedLocadora.api.App_Start;
 using SpeedLocadora.Infraestrutura.Repositorio;
 using System;
 using System.Collections.Generic;
@@ -9,46 +10,15 @@ using System.Web.Http;
 
 namespace SpeedLocadora.api.Controllers
 {
-    [RoutePrefix("api/locacao")]
-    public class LocacaoController : ApiController
+    [RoutePrefix("api/locacao"), BasicAuthorization(Roles = "Colaborador")]
+    public class LocacaoController : ControllerBasica
     {
         private LocacaoRepositorio repositorio = new LocacaoRepositorio();
 
-        [HttpGet]
-        public IHttpActionResult GetTodos()
+        [HttpGet, Route("pacotes")]
+        public IHttpActionResult ListarPacote()
         {
             return Ok(new { dados = repositorio.Listar() });
-        }
-
-        [HttpGet]
-        public IHttpActionResult GetPorId(int id)
-        {
-            return Ok(new { dados = repositorio.Obter(id) });
-        }
-
-        [HttpPost]
-        public IHttpActionResult Adicionar(Locacao locacao)
-        {
-            return Ok(new { dados = repositorio.Adicionar(locacao) });
-        }
-
-        [HttpPut]
-        public IHttpActionResult Alterar(int id, Locacao locacao)
-        {
-            return Ok(new { dados = repositorio.Alterar(id, locacao) });
-        }
-
-        [HttpDelete]
-        public IHttpActionResult Remove(int id)
-        {
-            repositorio.Deletar(id);
-            return Ok(new { mensagens = "Deletado com sucesso" });
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            repositorio.Dispose();
-            base.Dispose(disposing);
         }
     }
 }

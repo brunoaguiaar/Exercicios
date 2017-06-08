@@ -18,9 +18,24 @@ namespace Dominio.Entidades
 
         }
 
+        public void Alugar()
+        {
+            Quantidade--;
+        }
+
+        public void Devolver()
+        {
+            Quantidade++;
+        }
+
         public override bool Validar()
         {
-            throw new NotImplementedException();
+            Mensagens.Clear();
+
+            if (Quantidade <= 0)
+                Mensagens.Add("Não possui produtos suficientes para alugar");
+
+            return Quantidade > 0;
         }
     }
 }

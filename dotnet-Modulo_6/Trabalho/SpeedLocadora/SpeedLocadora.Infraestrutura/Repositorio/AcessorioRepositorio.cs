@@ -7,50 +7,40 @@ using System.Threading.Tasks;
 
 namespace SpeedLocadora.Infraestrutura.Repositorio
 {
-    public class AcessorioRepositorio : IDisposable
+    public class AcessorioRepositorio
     {
-        Contexto contexto = new Contexto();
+        private Contexto contexto = new Contexto();
 
-        public List<Acessorio> Listar()
+        public IEnumerable<Acessorio> Listar()
         {
             return contexto.Acessorios.ToList();
         }
 
-        public Acessorio Obter(int id)
+        public Acessorio Alugar(Acessorio acessorio, int quantidade)
         {
-            return contexto.Acessorios.Where(x => x.IdAcessorio == id).FirstOrDefault();
-        }
+            acessorio.Alugar(quantidade);
 
-        public Acessorio ObterPorCpf(string nome)
-        {
-            return contexto.Acessorios.Where(x => x.NomeAcessorio == nome).FirstOrDefault();
-        }
-
-        public Acessorio Adicionar(Acessorio acessorio)
-        {
-            contexto.Acessorios.Add(acessorio);
-            contexto.SaveChanges();
-            return acessorio;
-        }
-
-        public void Deletar(int Id)
-        {
-            var acessorio = contexto.Acessorios.FirstOrDefault(x => x.IdAcessorio == Id);
-            contexto.Acessorios.Remove(acessorio);
-            contexto.SaveChanges();
-        }
-
-        public Acessorio Alterar(int id, Acessorio acessorio)
-        {
             contexto.Entry(acessorio).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
 
-            return Obter(id);
+            return acessorio;
         }
 
-        public void Dispose()
+        public Acessorio Devolver(Acessorio acessorio, int quantidade)
         {
-            contexto.Dispose();
+            acessorio.Devolver(quantidade);
+
+            contexto.Entry(acessorio).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
+
+            return acessorio;
         }
+
+        public Acessorio Obter(int id)
+        {
+            return contexto.Acessorios.Where(u => u.IdAcessorio == id).FirstOrDefault();
+        }
+
+
     }
 }

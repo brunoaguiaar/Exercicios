@@ -1,4 +1,5 @@
 ﻿using Dominio.Entidades;
+using Dominio.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,45 +8,23 @@ using System.Threading.Tasks;
 
 namespace SpeedLocadora.Infraestrutura.Repositorio
 {
-    public class LocacaoRepositorio : IDisposable
+    public class LocacaoRepositorio
     {
-        Contexto contexto = new Contexto();
+        private Contexto contexto = new Contexto();
 
-        public List<Locacao> Listar()
+        public dynamic Listar()
         {
-            return contexto.Locacoes.ToList();
-        }
-
-        public Locacao Obter(int id)
-        {
-            return contexto.Locacoes.Where(x => x.IdLocacao == id).FirstOrDefault();
-        }
-
-        public Locacao Adicionar(Locacao locacao)
-        {
-            contexto.Locacoes.Add(locacao);
-            contexto.SaveChanges();
-            return locacao;
-        }
-
-        public void Deletar(int Id)
-        {
-            var locacao = contexto.Locacoes.FirstOrDefault(x => x.IdLocacao == Id);
-            contexto.Locacoes.Remove(locacao);
-            contexto.SaveChanges();
-        }
-
-        public Locacao Alterar(int id, Locacao locacao)
-        {
-            contexto.Entry(locacao).State = System.Data.Entity.EntityState.Modified;
-            contexto.SaveChanges();
-
-            return Obter(id);
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
+            return contexto.Database
+                .SqlQuery<ListagemPacoteView>(
+                @"SELECT p.Id AS IdPacote, p.Tipo as TipoPacote, p.DiasDeDuracao, e.NomeAcessorio AS NomeAcessorio, e.Valor, ep.Quantidade 
+                    FROM acessorio e  JOIN PacoteAcessorio ep ON e.Id = ep.IdAcessorio
+                    JOIN Pacote p on p.Id = ep.IdPacote ")
+                    .GroupBy(x => x.IdPacote)
+                    .Select(e => new {
+                        Tipo = e.FirstOrDefault().Tipo,
+                        DiasDeDuracao = e.FirstOrDefault().DiasDeDuracao,
+                        Acessorio = e.Select(x => new { Nome = x.NomeAcessorio, Quantidade = x.Quantidade, Valor = x.Valor })
+                    });
         }
     }
 }

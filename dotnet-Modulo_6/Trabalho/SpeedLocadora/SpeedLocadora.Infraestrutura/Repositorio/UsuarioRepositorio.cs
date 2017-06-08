@@ -1,6 +1,7 @@
 ﻿using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,11 +17,6 @@ namespace SpeedLocadora.Infraestrutura.Repositorio
 
         }
 
-        public Usuario Obter(int id)
-        {
-            return contexto.Usuarios.FirstOrDefault(x => x.IdUsuario == id);
-        }
-
         public Usuario Criar(Usuario usuario)
         {
             contexto.Usuarios.Add(usuario);
@@ -28,13 +24,12 @@ namespace SpeedLocadora.Infraestrutura.Repositorio
             return usuario;
         }
 
-        public Usuario Alterar(Usuario usuario)
+        public void Alterar(Usuario usuario)
         {
             contexto.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
-
-            return Obter(usuario.IdUsuario);
         }
+
         public void Excluir(Usuario usuario)
         {
             var deletado = contexto.Usuarios.FirstOrDefault(x => x.NomeUsuario.Contains(usuario.NomeUsuario));
@@ -49,7 +44,7 @@ namespace SpeedLocadora.Infraestrutura.Repositorio
 
         public Usuario Obter(string email)
         {
-            var usuario = contexto.Usuarios.FirstOrDefault(x => x.Email.Contains(email));
+            var usuario = contexto.Usuarios.Where(x => x.Email == email).Include(x => x.Permissoes).FirstOrDefault();
 
             return usuario;
         }

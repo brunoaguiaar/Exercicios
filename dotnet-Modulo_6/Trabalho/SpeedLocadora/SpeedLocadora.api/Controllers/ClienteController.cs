@@ -26,7 +26,7 @@ namespace SpeedLocadora.api.Controllers
             return Ok(new { dados = repositorio.Obter(id) });
         }
 
-        [HttpGet]
+        [HttpGet, Route("cpf/{cpf}")]
         public IHttpActionResult GetPorCpf(string cpf)
         {
             return Ok(new { dados = repositorio.ObterPorCpf(cpf) });

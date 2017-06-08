@@ -11,7 +11,7 @@ namespace Dominio.Entidades
         public int IdPacote { get; set; }
         public string Tipo { get; set; }
         public double Valor { get; set; }
-        public VideoGame VideoGame { get; set; }
+        public int DiasDeDuracao { get; set; }
         public virtual List<PacoteAcessorio> Acessorios { get; set; }
 
         public Pacote()
