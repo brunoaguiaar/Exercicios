@@ -20,7 +20,7 @@ namespace SpeedLocadora.api.Controllers
             return Ok(new { dados = repositorio.Listar() });
         }
 
-        [HttpGet]
+        [HttpGet, Route("{id:int}")]
         public IHttpActionResult GetPorId(int id)
         {
             return Ok(new { dados = repositorio.Obter(id) });
@@ -38,13 +38,13 @@ namespace SpeedLocadora.api.Controllers
             return Ok(new { dados = repositorio.Adicionar(cliente) });
         }
 
-        [HttpPut]
+        [HttpPut, Route("{id:int}")]
         public IHttpActionResult Alterar(int id, Cliente cliente)
         {
             return Ok(new { dados = repositorio.Alterar(id, cliente) });
         }
 
-        [HttpDelete]
+        [HttpDelete, Route("{id:int}")]
         public IHttpActionResult Remove(int id)
         {
             repositorio.Deletar(id);
