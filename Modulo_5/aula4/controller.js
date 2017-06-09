@@ -32,7 +32,7 @@ app.controller('Pagina02Controller', function ($scope) {
   $scope.controller = 'Pagina02Controller';
 });
 
-app.controller('PokemonController', function ($scope, &http){
+app.controller('PokemonController', function ($scope, $http){
   flech(url).then(function (responce){
     console.log(responce);
   });

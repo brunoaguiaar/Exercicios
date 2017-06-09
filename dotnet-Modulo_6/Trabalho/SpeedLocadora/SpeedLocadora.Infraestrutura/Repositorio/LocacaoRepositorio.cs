@@ -26,5 +26,12 @@ namespace SpeedLocadora.Infraestrutura.Repositorio
                         Acessorio = e.Select(x => new { Nome = x.NomeAcessorio, Quantidade = x.Quantidade, Valor = x.Valor })
                     });
         }
+
+        public Locacao Incluir(Locacao locacao)
+        {
+            contexto.Locacoes.Add(locacao);
+            contexto.SaveChanges();
+            return locacao;
+        }
     }
 }

@@ -6,11 +6,11 @@ app.config(function ($routeProvider) {
     .when('/cliente', {
       controller: 'ClienteController',
       templateUrl: 'html/cliente.html',
-      resolve: {
-        autenticado: function (authService) {
-          return authService.isAutenticadoPromise();
-        }
-      }
+      // resolve: {
+      //   autenticado: function (authService) {
+      //     return authService.isAutenticadoPromise();
+      //   }
+      // }
     })
     .when('/login', {
       controller: 'LoginController',

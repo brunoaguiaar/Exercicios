@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201706081332360_TesteDeMigration.Designer.cs">
       <DependentUpon>201706081332360_TesteDeMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706091642035_CriandoUsuario.cs" />
+    <Compile Include="Migrations\201706091642035_CriandoUsuario.Designer.cs">
+      <DependentUpon>201706091642035_CriandoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\AcessorioRepositorio.cs" />
@@ -89,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706081332360_TesteDeMigration.resx">
       <DependentUpon>201706081332360_TesteDeMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706091642035_CriandoUsuario.resx">
+      <DependentUpon>201706091642035_CriandoUsuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

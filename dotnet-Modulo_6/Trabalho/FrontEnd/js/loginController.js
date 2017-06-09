@@ -1,9 +1,14 @@
-angular.module('app').controller('LoginController', function ($scope, authService, $location, toastr) {
+angular.module('app').controller('LoginController', function ($scope, $rootScope, authService, $location, toastr) {
+
+$rootScope.show = false;
 
 if(authService.isAutenticado()){
   $location.path('/index');
 }
-  $scope.login = function (usuario) {
+   $scope.login = login;
+   
+   function login (usuario) {
+    console.log("CHAMOU");
 
     authService.login(usuario)
       .then(

@@ -10,13 +10,19 @@ using System.Web.Http;
 
 namespace SpeedLocadora.api.Controllers
 {
-    [RoutePrefix("api/locacao"), BasicAuthorization(Roles = "Colaborador")]
+    [RoutePrefix("api/locacao"), BasicAuthorization(Roles = "Gerente")]
     public class LocacaoController : ControllerBasica
     {
         private LocacaoRepositorio repositorio = new LocacaoRepositorio();
 
         [HttpGet, Route("pacotes")]
         public IHttpActionResult ListarPacote()
+        {
+            return Ok(new { dados = repositorio.Listar() });
+        }
+
+        [HttpPost]
+        public IHttpActionResult Incluir()
         {
             return Ok(new { dados = repositorio.Listar() });
         }
