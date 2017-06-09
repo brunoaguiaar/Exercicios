@@ -1,0 +1,30 @@
+<h1>Login</h1>
+<hr>
+    <div class="row">
+        <div class="col-md-3">
+            <form class="form-horizontal">
+                <div class="col-md-12 form-group">
+                    <label for="novoUsuario">Nome:</label>
+                        <input type="text"
+                        id="nome"
+                        class="form-control input-sm"
+                        ng-model="usuario.nome"
+                        placeholder="Bruno"/>
+                    <label for="novoUsuario">Email:</label>
+                        <input id="email"
+                        class="form-control input-sm" 
+                        ng-model="usuario.email" 
+                        type="email" 
+                        placeholder="bruno@cwi.com.br" />
+                    <label for="novoUsuario">Senha:</label>
+                        <input id="senha" 
+                        class="form-control input-sm" 
+                        ng-model="usuario.senha" 
+                        type="password"/>
+                    <div class="wrapper">
+                        <button type="submit" class="btn btn-primary btn-md" ng-click="login(usuario)">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

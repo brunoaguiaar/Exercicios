@@ -1,5 +1,6 @@
 namespace SpeedLocadora.Infraestrutura.Migrations
 {
+    using Dominio.Entidades;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -26,6 +27,22 @@ namespace SpeedLocadora.Infraestrutura.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            if (!context.Usuarios.Where(x => x.Email == "bruno@cwi.com.br").Any())
+            {
+                var usuario = new Usuario("Bruno", "bruno@cwi.com.br", "123456");
+                usuario.AtribuirPermissoes("Colaborador");
+                context.Usuarios.Add(usuario);
+                context.SaveChanges();
+            }
+
+            if (!context.Usuarios.Where(i => i.Email == "bruno.aguiar@cwi.com.br").Any())
+            {
+                var usuario = new Usuario("BrunoGerente", "bruno.aguiar@cwi.com.br", "123456");
+                usuario.AtribuirPermissoes("Gerente");
+                context.Usuarios.Add(usuario);
+                context.SaveChanges();
+            }
         }
     }
 }

@@ -1,0 +1,78 @@
+<div class="container" ng-controller="MainController">
+  <h1>Clientes</h1>
+  <hr>
+  <div class="row">
+    <form class="col-md-6 form-horizontal" name="addCliente" novalidate ng-sumbit="addCliente()">
+     <div class="col-md-12 form-group">
+       <h2>Adicionar novo Cliente</h2>
+       <div class="form-group">
+         <label for="novoCliente">Nome:</label>
+         <input class="form-control"
+           type="text"
+           name="novCliente.nome"
+           placeholder="Nome do cliente"
+           required
+           autofocus
+           minlength="3"
+           maxlength="50"
+           ng-model="novoCliente.nome">
+         <label for="novoInstrutor">Endereço:</label>
+         <input class="form-control"
+           type="text"
+           name="novCliente.endereco"
+           placeholder="Endereço do cliente"
+           maxlength="70"
+           ng-model="novoCliente.endereco">
+         <label for="novoCliente">CPF:</label>
+         <input class="form-control"
+           type="text"
+           name="novCliente.idade"
+           placeholder="CPF do cliente"
+           required
+           maxlength="11"
+           ng-model="novoCliente.idade">
+        <label for="novoCliente">Genero</label>
+          <select class="form-control" id="genero">
+          <option value="1">Masculino</option>
+          <option value="2">Feminino</option>
+          </select>
+        <label for="novoCliente">Data de Nascimento:</label>
+         <input class="form-control"
+           type="date"
+           name="novCliente.dataNascimento"
+           placeholder="dd/mm/aaaa"
+           required
+           maxlength="11"
+           ng-model="novoCliente.idade">
+       </div>
+     <div class="form-group">
+       <button class="btn btn-primary form-control" type="submit">Adicionar</button>
+     </div>
+     <div class="form-group">
+       <button class="btn btn-primary form-control" ng-click="voltar()">Voltar</button>
+     </div>
+   </div>
+   </form>
+   <div class="col-md-6">
+      <h2>Clientes</h2>
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Endereço</th>
+          <th>CPF</th>
+          <th>Genero</th>
+          <th>Data de Nascimento</th>
+        </tr>
+        <tr ng-repeat="cliente in clientes | orderBy: 'nome'">
+          <td>{{ cliente.id }}</td>
+          <td>{{ cliente.nome }}</td>
+          <td>{{ cliente.endereco }}</td>
+          <td>{{ cliente.CPF }}</td>
+          <td>{{ cliente.genero }}</td>
+          <td>{{ cliente.dataNascimento }}</td>
+        </tr>
+      </table>
+   </div>
+ </div>
+ </div>
