@@ -1,0 +1,9 @@
+exercicio 1.
+
+select distinct produto.idproduto, produto.Nome, pedido.Dataentrega from produto
+inner join PedidoItem
+on produto.IDProduto = pedidoitem.IDProduto
+inner join pedido
+on pedidoitem.idpedido = pedido.idpedido
+and pedido.datapedido between add_months(trunc(sysdate, 'MM'), -4)
+and last_day(add_months(trunc(sysdate, 'MM'), -4));
