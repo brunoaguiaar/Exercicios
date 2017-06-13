@@ -1,9 +1,41 @@
-exercicio 1.
+--exemplo trunc
+select trunc(sysdate) HOJE_SEM_HORA,
+  add_months(trunc(sysdate), -4) QUATRO_MESES_ANTES
+from dual;
 
-select distinct produto.idproduto, produto.Nome, pedido.Dataentrega from produto
-inner join PedidoItem
-on produto.IDProduto = pedidoitem.IDProduto
-inner join pedido
-on pedidoitem.idpedido = pedido.idpedido
-and pedido.datapedido between add_months(trunc(sysdate, 'MM'), -4)
-and last_day(add_months(trunc(sysdate, 'MM'), -4));
+select * from user_tables
+
+EXEC dbms_stats.gather_schema_stats(USER);
+
+--exercicio 1
+create view vwProdutos_sem_compra as
+select IdProduto, Nome
+from Produto
+where Idproduto not in(select item.idproduto
+                        from pedidoitem item
+                        inner join pedido ped on ped.idpedido = item.idpedido
+                        where ped.datapedido >= add_months(trunc(sysdate), -4)
+                      );
+              
+select * from vwProdutos_sem_compra
+--------------------------------------------------------------------------------
+--exercicio 2 
+
+update Produto
+set situacao = 'i'
+where IdProduto in (select IdProduto from vwProdutos_Sem_compra);
+
+update produto
+set Situacao = 'i'
+where exists (select idproduto
+              from vwProdutos_Sem_compra vw
+              where produto.idproduto = vw.idproduto);
+--------------------------------------------------------------------------------
+--exercicio 3
+
+select sum(item.quantidade) quantidade
+from pedidoitem item
+  inner join pedido ped on ped.idpedido = item.idpedido
+where item.idpedido = :idproduto
+and ped.datapedido >= trunc(sysdate, 'yyyy');
+
