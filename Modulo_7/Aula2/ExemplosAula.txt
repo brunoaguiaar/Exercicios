@@ -1,0 +1,82 @@
+Begin
+ DBMS_OUTPUT.PUT_LINE('Buenas tarde!');
+End;
+
+--------------------------------------------------------------------------------
+DECLARE
+  vNome_Completo  varchar2(30);
+  vAno            number(4);
+  vData           date;
+BEGIN
+  -- Atribuindo um valor para a variavel
+  vNome_Completo := 'Maria da Silva';
+  vData          := sysdate+1000;
+  vAno           := to_char(vData, 'yyyy');
+
+    -- Imprimindo as variaveis 
+  DBMS_OUTPUT.PUT_LINE(vNome_Completo);
+  DBMS_OUTPUT.PUT_LINE('Em 1000 dias estaremos em: ' || to_char(vAno));
+END;
+
+--------------------------------------------------------------------------------
+DECLARE
+  vNome_Cidade Cidade.Nome%TYPE;
+BEGIN
+  -- Atribuindo um valor para a variavel %TYPE 
+  vNome_Cidade := 'São Leopoldo';
+
+  DBMS_OUTPUT.PUT_LINE(vNome_Cidade);
+END;
+
+--------------------------------------------------------------------------------
+DECLARE
+  vTotal integer;
+BEGIN
+  Select count(1) 
+  into vTotal
+  from cliente;
+END;
+
+--------------------------------------------------------------------------------
+DECLARE
+  vTotal number(5);
+BEGIN
+  Select count(1) 
+    into vTotal
+    from Cliente;
+
+  IF (vTotal = 0) THEN
+    DBMS_OUTPUT.PUT_LINE('Nenhum registro foi encontrado!');
+  ELSIF (vTotal = 1) THEN
+    DBMS_OUTPUT.PUT_LINE('Um registro encontrado!');
+  ELSE
+    DBMS_OUTPUT.PUT_LINE('Muitos clientes cadastrados!!!');
+  END IF;
+END;
+
+--------------------------------------------------------------------------------
+DECLARE
+  vContador number(2);
+BEGIN
+   vContador := 1;
+
+   WHILE vContador <= 30 LOOP
+     DBMS_OUTPUT.PUT_LINE('Executou: '|| to_char(vContador, '09'));
+     vContador := vContador + 1;
+   END LOOP;
+END;
+
+--------------------------------------------------------------------------------
+DECLARE
+ CURSOR C_ListaCli IS
+     Select Nome, 
+            Bairro
+     From   Cliente
+     Order  by 1;
+BEGIN
+   FOR reg IN C_ListaCli LOOP
+     DBMS_OUTPUT.PUT_LINE( reg.nome || ' -- '|| reg.Bairro);
+   END LOOP;
+END;
+
+--------------------------------------------------------------------------------

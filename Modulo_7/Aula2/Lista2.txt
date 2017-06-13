@@ -1,0 +1,28 @@
+declare
+  CURSOR C_ListaCidades is
+     select cid.nome, 
+            cid.UF
+     from cliente clie
+     inner join cidade cid
+     on clie.idcidade = cid.idcidade
+     group by cid.nome, cid.uf
+     having count(1) > 1;
+     
+  Cursor C_ListaClientes is 
+     select clie.idcliente,
+            clie.nome,
+            cid.nome,
+            cid.uf
+     from cidade cid
+     inner join cliente clie
+     on clie.idcidade = cid.idcidade
+     order by cid.nome;
+begin 
+  for clie in C_ListaClientes loop
+    for cid in C_ListaCidades loop
+      if(clie.nome = cid.nome and clie.uf = cid.uf) then
+        DBMS_OUTPUT.PUT_LINE( i.Nome );
+      end if;
+    END LOOP;
+  END LOOP; 
+end;
