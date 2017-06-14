@@ -8,21 +8,37 @@ declare
      group by cid.nome, cid.uf
      having count(1) > 1;
      
-  Cursor C_ListaClientes is 
-     select clie.idcliente,
-            clie.nome,
-            cid.nome,
-            cid.uf
-     from cidade cid
-     inner join cliente clie
+  Cursor C_ListaClientes (pNomeCid in varchar2, pUF in varchar2) is 
+     select clie.nome
+     from cliente clie
+     inner join cidade cid
      on clie.idcidade = cid.idcidade
-     order by cid.nome;
+     where cid.nome = pNomeCid AND cid.UF = pUF
+     order by nome;
 begin 
-  for clie in C_ListaClientes loop
-    for cid in C_ListaCidades loop
-      if(clie.nome = cid.nome and clie.uf = cid.uf) then
-        DBMS_OUTPUT.PUT_LINE( i.Nome );
-      end if;
+  for regin C_ListaCidades loop
+    for clie in C_ListaClientes(reg.nome, reg.UF) loop
+      DBMS_OUTPUT.PUT_LINE( clie.Nome );
     END LOOP;
   END LOOP; 
+end;
+
+
+update pedido set valorPedido = (select sum(precoUnitario * quantidade)
+				 from pedidoitem
+				 where idpedido =: idpedido)
+ where idpedido =: idpedido;
+
+
+delacre
+
+cursor clientes is
+  select idcliente
+    from pedido
+    where months_between(to_date(sysdate), to_date(pedido.datapedido) <= 6;
+
+begin
+  for reg in clientes loop
+    update cliente set situacao = 'i' where idcliente = reg.idcliente;
+  end loop
 end;
