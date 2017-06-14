@@ -1,0 +1,13 @@
+create or replace
+procedure cidades_duplicadas as 
+  begin
+    select cid.nome, 
+           cid.UF
+    from cliente clie
+    inner join cidade cid
+    on clie.idcidade = cid.idcidade
+    group by cid.nome, cid.uf
+    having count(1) > 1;
+  end;
+end;
+

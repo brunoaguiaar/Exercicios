@@ -1,0 +1,3 @@
+create or replace package pck_cidade as
+  procedure elimina_cidades_duplicadas;
+end;
