@@ -1,3 +1,4 @@
+--Exercicio 1
 declare
   CURSOR C_ListaCidades is
      select cid.nome, 
@@ -16,29 +17,55 @@ declare
      where cid.nome = pNomeCid AND cid.UF = pUF
      order by nome;
 begin 
-  for regin C_ListaCidades loop
+  for reg in C_ListaCidades loop
     for clie in C_ListaClientes(reg.nome, reg.UF) loop
       DBMS_OUTPUT.PUT_LINE( clie.Nome );
     END LOOP;
   END LOOP; 
 end;
 
+create index IX_Cidade_NomeUF
+        on cidade (Nome, UF);
 
-update pedido set valorPedido = (select sum(precoUnitario * quantidade)
-				 from pedidoitem
-				 where idpedido =: idpedido)
- where idpedido =: idpedido;
+create index IX_Cliente_Cidade 
+        on Cliente(IDCidade);
+--------------------------------------------------------------------------------
 
+--Exercicio 2
 
-delacre
+CREATE OR REPLACE
+PROCEDURE Atualiza_Valor_Pedido (pIDPedido IN INTEGER) AS
+  vValorPedido  Pedido.ValorPedido%type;
+BEGIN
+
+   Select SUM(Quantidade * PrecoUnitario)
+   into   vValorPedido
+   From   PedidoItem
+   Where  IDPedido = pIDPedido;
+   
+   Update Pedido
+   Set    ValorPedido = vValorPedido
+   Where  IDPedido    = pIDPedido;
+
+END;
+
+exec Atualiza_Valor_Pedido(pIdPedido => :IdPedido);
+--------------------------------------------------------------------------------
+
+--Exercicio 3
+declare
 
 cursor clientes is
   select idcliente
     from pedido
-    where months_between(to_date(sysdate), to_date(pedido.datapedido) <= 6;
-
+    where months_between(to_date(sysdate), 
+         to_date(pedido.datapedido) <= 6);
 begin
   for reg in clientes loop
     update cliente set situacao = 'i' where idcliente = reg.idcliente;
-  end loop
+  end loop;
 end;
+--------------------------------------------------------------------------------
+
+--Exercicio 4
+
