@@ -15,6 +15,8 @@ namespace SpeedLocadora.Infraestrutura.Mappings
             ToTable("VideoGame");
 
             HasKey(x => x.IdVideoGame);
+
+            Property(p => p.NomeVideoGame);
         }
     }
 }

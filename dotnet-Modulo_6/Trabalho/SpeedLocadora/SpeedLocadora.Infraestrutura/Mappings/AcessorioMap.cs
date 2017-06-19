@@ -15,6 +15,8 @@ namespace SpeedLocadora.Infraestrutura.Mappings
             ToTable("Acessorios");
 
             HasKey(x => x.IdAcessorio);
+
+            Property(p => p.NomeAcessorio);
         }
     }
 }

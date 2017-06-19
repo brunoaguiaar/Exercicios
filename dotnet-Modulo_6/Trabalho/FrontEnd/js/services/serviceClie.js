@@ -12,7 +12,7 @@ angular.module('app').factory('ServiceClie', function ($http) {
       }
     });
   }
-  function cadastrarCliente (cliente, headerAuth) {
+  function cadastrarCliente(cliente, headerAuth) {
     return $http({
       url: url + '/registrar',
       method: 'POST',

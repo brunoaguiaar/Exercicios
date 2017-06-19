@@ -16,30 +16,44 @@ namespace SpeedLocadora.Infraestrutura.Repositorio
             return contexto.Acessorios.ToList();
         }
 
-        public Acessorio Alugar(Acessorio acessorio, int quantidade)
+        public void Aluga(List<Acessorio> listaAcessorios)
         {
-            acessorio.Alugar(quantidade);
-
-            contexto.Entry(acessorio).State = System.Data.Entity.EntityState.Modified;
+            foreach (var acessorio in listaAcessorios)
+            {
+                var acessorios = contexto.Acessorios.Where(x => x.IdAcessorio == acessorio.IdAcessorio).FirstOrDefault();
+                --acessorios.Quantidade;
+            }
             contexto.SaveChanges();
-
-            return acessorio;
+            return;
         }
 
-        public Acessorio Devolver(Acessorio acessorio, int quantidade)
+        public void Devolve(List<Acessorio> listaAcessorios)
         {
-            acessorio.Devolver(quantidade);
-
-            contexto.Entry(acessorio).State = System.Data.Entity.EntityState.Modified;
+            foreach (var acessorio in listaAcessorios)
+            {
+                var acessorios = contexto.Acessorios.Where(x => x.IdAcessorio == acessorio.IdAcessorio).FirstOrDefault();
+                ++acessorios.Quantidade;
+            }
             contexto.SaveChanges();
-
-            return acessorio;
+            return;
         }
 
-        public Acessorio Obter(int id)
+        public Acessorio ObterPorId(int id)
         {
-            return contexto.Acessorios.Where(u => u.IdAcessorio == id).FirstOrDefault();
+            return contexto.Acessorios.Where(x => x.IdAcessorio == id).FirstOrDefault();
         }
+
+        public List<Acessorio> ObterAcessoriosPorId(List<int> listaAcessorios)
+        {
+            List<Acessorio> retorno = null;
+            foreach (var id in listaAcessorios)
+            {
+                var acessorio = ObterPorId(id);
+                retorno.Add(acessorio);
+            }
+            return retorno;
+        }
+
 
         public List<Acessorio> ListarDisponiveis()
         {

@@ -13,24 +13,22 @@ namespace Dominio.Entidades
         static readonly char[] _caracteresNovaSenha = "abcdefghijklmnopqrstuvzwyz1234567890*-_".ToCharArray();
         static readonly int _numeroCaracteresNovaSenha = 10;
 
-        public int IdUsuario { get; private set; }
-        public string NomeUsuario { get; private set; }
+        public int Id { get; private set; }
         public string Email { get; private set; }
         public string Senha { get; private set; }
         public List<Permissao> Permissoes { get; private set; }
 
+        // Construtor padrão para o Entity Framework
         protected Usuario()
         {
         }
 
-        public Usuario(string nome, string email, string senha)
+        public Usuario(string email, string senha)
         {
-            NomeUsuario = nome;
             Email = email;
             if (!string.IsNullOrWhiteSpace(senha))
                 Senha = CriptografarSenha(senha);
             Permissoes = new List<Permissao>();
-            AtribuirPermissoes("Colaborador");
         }
 
         public string ResetarSenha()
@@ -65,8 +63,6 @@ namespace Dominio.Entidades
 
         public void AtribuirPermissoes(params string[] nomes)
         {
-            Permissoes = new List<Permissao>();
-
             foreach (var nome in nomes)
                 Permissoes.Add(new Permissao(nome));
         }
@@ -74,9 +70,6 @@ namespace Dominio.Entidades
         public override bool Validar()
         {
             Mensagens.Clear();
-
-            if (string.IsNullOrWhiteSpace(NomeUsuario))
-                Mensagens.Add("Nome é inválido.");
 
             if (string.IsNullOrWhiteSpace(Email))
                 Mensagens.Add("Email é inválido.");

@@ -1,6 +1,8 @@
-<div class="container">
-    <a href="#!/login">Login</a>
-    <a href="#!/cliente">Clientes</a>
-    <a href="#!/locacao">Locação</a>
-    <a href="#!/relatorio">Relatorios</a>
-</div>
+<h3> Menu </h3>
+
+<button class="btn btn-success" ng-click="cadastrarCliente()">Cliente</button>
+<button class="btn btn-success" ng-click="cadastrarLocacao()">Cadastrar Locação</button>
+<button class="btn btn-success" ng-if="gerente" ng-click="gerarRelatorioMensal()">Relatório</button>
+<hr>
+
+<button class="btn btn-warning" ng-click="logout()">Logout</button>

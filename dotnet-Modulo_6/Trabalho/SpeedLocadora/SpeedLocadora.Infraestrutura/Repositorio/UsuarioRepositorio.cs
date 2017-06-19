@@ -12,11 +12,6 @@ namespace SpeedLocadora.Infraestrutura.Repositorio
     {
         Contexto contexto = new Contexto();
 
-        public UsuarioRepositorio()
-        {
-
-        }
-
         public Usuario Criar(Usuario usuario)
         {
             contexto.Usuarios.Add(usuario);
@@ -24,29 +19,11 @@ namespace SpeedLocadora.Infraestrutura.Repositorio
             return usuario;
         }
 
-        public void Alterar(Usuario usuario)
-        {
-            contexto.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
-            contexto.SaveChanges();
-        }
-
-        public void Excluir(Usuario usuario)
-        {
-            var deletado = contexto.Usuarios.FirstOrDefault(x => x.NomeUsuario.Contains(usuario.NomeUsuario));
-            contexto.Usuarios.Remove(deletado);
-            contexto.SaveChanges();
-        }
-
-        public IEnumerable<Usuario> Listar()
-        {
-            return contexto.Usuarios.ToList();
-        }
-
         public Usuario Obter(string email)
         {
-            var usuario = contexto.Usuarios.Where(x => x.Email == email).Include(x => x.Permissoes).FirstOrDefault();
-
-            return usuario;
+            return contexto.Usuarios.Where(u => u.Email == email)
+                .Include(a => a.Permissoes)
+                .FirstOrDefault();
         }
     }
 }

@@ -20,17 +20,23 @@ namespace SpeedLocadora.Infraestrutura.Mappings
                 .WithMany()
                 .Map(x => x.MapKey("IdCliente"));
 
-            HasRequired(x => x.Usuario)
+            HasOptional(x => x.Pacote)
                 .WithMany()
-                .Map(x => x.MapKey("IdUsuario"));
+                .Map(x => x.MapKey("IdPacote"));
 
             HasRequired(x => x.VideoGame)
                 .WithMany()
                 .Map(x => x.MapKey("IdVideoGame"));
 
-            HasOptional(x => x.PacoteAcessorios)
+            HasMany(x => x.Acessorios)
                 .WithMany()
-                .Map(x => x.MapKey("IdPacoteAcessorio"));
+                .Map(x =>
+                {
+                    x.MapLeftKey("IdLocacao");
+                    x.MapRightKey("IdAcessorio");
+                    x.ToTable("LocacaoAcessorio");
+
+                });
         }
     }
 }

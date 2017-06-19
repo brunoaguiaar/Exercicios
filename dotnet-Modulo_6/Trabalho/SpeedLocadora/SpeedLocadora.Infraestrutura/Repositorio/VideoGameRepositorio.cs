@@ -21,24 +21,21 @@ namespace SpeedLocadora.Infraestrutura.Repositorio
             return contexto.VideoGames.Where(u => u.IdVideoGame == id).FirstOrDefault();
         }
 
-        public VideoGame Alugar(VideoGame videoGame)
+        public void Alugar(int idVideoGame)
         {
-            videoGame.Alugar();
-
-            contexto.Entry(videoGame).State = System.Data.Entity.EntityState.Modified;
+            var videoGame = contexto.VideoGames.Where(x => x.IdVideoGame == idVideoGame).FirstOrDefault();
+            --videoGame.Quantidade;
             contexto.SaveChanges();
-
-            return videoGame;
+            return;
         }
 
-        public VideoGame Devolver(VideoGame videoGame)
+        public void Devolver(int idVideoGame)
         {
-            videoGame.Devolver();
 
-            contexto.Entry(videoGame).State = System.Data.Entity.EntityState.Modified;
+            var videoGame = contexto.VideoGames.Where(x => x.IdVideoGame == idVideoGame).FirstOrDefault();
+            ++videoGame.Quantidade;
             contexto.SaveChanges();
-
-            return videoGame;
+            return;
         }
 
         public object ListarDisponiveis()

@@ -11,7 +11,7 @@ angular.module('app').controller('ClienteController',
         ServiceClie.cadastrarCliente(cliente)
                     .then( function() {
                         toastr.success('Cliente incluído com sucesso!');
-                        $location.path('/index'); 
+                        $location.path('/menu'); 
                     });
         } else {
             toastr.warning('Dados inválidos!');
@@ -20,7 +20,7 @@ angular.module('app').controller('ClienteController',
 };
 
     function voltar(){
-         $location.path('/index');
+         $location.path('/menu');
     }
 
 });

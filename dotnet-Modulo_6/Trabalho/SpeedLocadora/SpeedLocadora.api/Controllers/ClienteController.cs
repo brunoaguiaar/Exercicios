@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace SpeedLocadora.api.Controllers
 {
+    [AllowAnonymous]
     [RoutePrefix("api/cliente")]
     public class ClienteController : ControllerBasica
     {

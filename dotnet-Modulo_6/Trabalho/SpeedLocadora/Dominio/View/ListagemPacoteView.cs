@@ -9,6 +9,7 @@ namespace Dominio.View
     public class ListagemPacoteView
     {
         public int IdPacote { get; set; }
+        public int IdAcessorio { get; set; }
         public string Tipo { get; set; }
         public int DiasDeDuracao { get; set; }
         public string NomeAcessorio { get; set; }

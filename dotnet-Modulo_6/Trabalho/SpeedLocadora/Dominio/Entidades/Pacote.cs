@@ -12,7 +12,7 @@ namespace Dominio.Entidades
         public string Tipo { get; set; }
         public double Valor { get; set; }
         public int DiasDeDuracao { get; set; }
-        public virtual List<PacoteAcessorio> Acessorios { get; set; }
+        public List<Acessorio> Acessorios { get; set; }
 
         public Pacote()
         {

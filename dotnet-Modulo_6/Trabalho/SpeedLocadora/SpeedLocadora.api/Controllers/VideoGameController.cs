@@ -37,24 +37,5 @@ namespace SpeedLocadora.api.Controllers
         {
             return Ok(new { dados = repositorio.Obter(id) });
         }
-
-        [HttpPut, Route("alugar/{id:int}"), BasicAuthorization(Roles = "Colaborador")]
-        public HttpResponseMessage Alugar(int id)
-        {
-            var videoGame = repositorio.Obter(id);
-
-            if (videoGame.Validar())
-                return ResponderErro(videoGame.Mensagens);
-
-            return ResponderOK(new { dados = repositorio.Alugar(videoGame) });
-        }
-
-        [HttpPut, Route("devolver/{id:int}"), BasicAuthorization(Roles = "Colaborador")]
-        public HttpResponseMessage Devolver(int id)
-        {
-            var videoGame = repositorio.Obter(id);
-
-            return ResponderOK(new { dados = repositorio.Devolver(videoGame) });
-        }
     }
 }

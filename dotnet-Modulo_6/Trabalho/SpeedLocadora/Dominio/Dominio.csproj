@@ -53,9 +53,7 @@
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\EntidadeBasica.cs" />
     <Compile Include="Entidades\Locacao.cs" />
-    <Compile Include="Entidades\LocacaoAcessorio.cs" />
     <Compile Include="Entidades\Pacote.cs" />
-    <Compile Include="Entidades\PacoteAcessorio.cs" />
     <Compile Include="Entidades\Permissao.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Entidades\VideoGame.cs" />

@@ -30,7 +30,7 @@ namespace SpeedLocadora.Infraestrutura.Migrations
 
             if (!context.Usuarios.Where(x => x.Email == "bruno@cwi.com.br").Any())
             {
-                var usuario = new Usuario("Bruno", "bruno@cwi.com.br", "123456");
+                var usuario = new Usuario("bruno@cwi.com.br", "123456");
                 usuario.AtribuirPermissoes("Colaborador");
                 context.Usuarios.Add(usuario);
                 context.SaveChanges();
@@ -38,7 +38,7 @@ namespace SpeedLocadora.Infraestrutura.Migrations
 
             if (!context.Usuarios.Where(i => i.Email == "bruno.aguiar@cwi.com.br").Any())
             {
-                var usuario = new Usuario("BrunoGerente", "bruno.aguiar@cwi.com.br", "123456");
+                var usuario = new Usuario("bruno.aguiar@cwi.com.br", "123456");
                 usuario.AtribuirPermissoes("Gerente");
                 context.Usuarios.Add(usuario);
                 context.SaveChanges();

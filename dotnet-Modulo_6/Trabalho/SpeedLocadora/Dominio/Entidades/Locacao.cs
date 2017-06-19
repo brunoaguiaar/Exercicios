@@ -14,24 +14,30 @@ namespace Dominio.Entidades
         public DateTime PrevisaoEntrega { get; set; }
         public double PrecoFinal { get; set; }
         public double PrecoPrevisto { get; set; }
-        public PacoteAcessorio PacoteAcessorios { get; set; }
         public VideoGame VideoGame { get; set; }
-        public Usuario Usuario { get; set; }
+        public Pacote Pacote { get; set; }
         public Cliente Cliente { get; set; }
-        public virtual List<LocacaoAcessorio> Acessorios { get; set; }
+        public virtual List<Acessorio> Acessorios { get; set; }
 
         public Locacao()
         { }
 
-        public Locacao(Cliente cliente, Usuario usuario, VideoGame videoGame, DateTime dataEntrega, DateTime dataLocacao, PacoteAcessorio pacoteAcessorios, double precoPrevisto)
+        public Locacao(Cliente cliente, VideoGame videoGame, Pacote pacote, List<Acessorio> Acessorios)
         {
             Cliente = cliente;
             VideoGame = videoGame;
-            DataEntrega = dataEntrega;
-            DataLocacao = dataLocacao;
-            PacoteAcessorios = pacoteAcessorios;
-            PrecoPrevisto = precoPrevisto;
-            Usuario = usuario;
+            DataLocacao = DateTime.Now.Date;
+            PrecoPrevisto = ValorLocacao();
+            Pacote = pacote;
+        }
+
+        public double ValorLocacao()
+        {
+            double valorProduto = VideoGame.Valor * Pacote.DiasDeDuracao;
+            double valorOpcional = Acessorios.Sum(x => x.Valor) * Pacote.DiasDeDuracao;
+            double valorPacote = Pacote.Valor;
+
+            return valorProduto + valorPacote + valorOpcional;
         }
     }
 }

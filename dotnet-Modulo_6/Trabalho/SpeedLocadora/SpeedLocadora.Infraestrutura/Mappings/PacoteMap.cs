@@ -15,6 +15,15 @@ namespace SpeedLocadora.Infraestrutura.Mappings
             ToTable("Pacotes");
 
             HasKey(x => x.IdPacote);
+
+            Property(p => p.Tipo).HasMaxLength(300);
+
+            HasMany(x => x.Acessorios).WithMany().Map(x =>
+            {
+                x.MapLeftKey("IdPacote");
+                x.MapRightKey("IdAcessorio");
+                x.ToTable("PacoteAcessorio");
+            });
         }
     }
 }

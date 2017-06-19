@@ -14,8 +14,6 @@ namespace SpeedLocadora.Infraestrutura.Mappings
         {
             ToTable("Usuarios");
 
-            HasKey(x => x.IdUsuario);
-
             HasMany(x => x.Permissoes).WithMany().Map(x =>
             {
                 x.MapLeftKey("IdUsuario");

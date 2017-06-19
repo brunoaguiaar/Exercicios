@@ -50,9 +50,7 @@
     <Compile Include="Contexto.cs" />
     <Compile Include="Mappings\AcessorioMap.cs" />
     <Compile Include="Mappings\ClienteMap.cs" />
-    <Compile Include="Mappings\LocacaoAcessorioMap.cs" />
     <Compile Include="Mappings\LocacaoMap.cs" />
-    <Compile Include="Mappings\PacoteAcessorioMap.cs" />
     <Compile Include="Mappings\PacoteMap.cs" />
     <Compile Include="Mappings\PermissaoMap.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
@@ -69,11 +67,16 @@
     <Compile Include="Migrations\201706091642035_CriandoUsuario.Designer.cs">
       <DependentUpon>201706091642035_CriandoUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706191523162_AjusteBancoDeDados.cs" />
+    <Compile Include="Migrations\201706191523162_AjusteBancoDeDados.Designer.cs">
+      <DependentUpon>201706191523162_AjusteBancoDeDados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\AcessorioRepositorio.cs" />
     <Compile Include="Repositorio\ClienteRepositorio.cs" />
     <Compile Include="Repositorio\LocacaoRepositorio.cs" />
+    <Compile Include="Repositorio\PacoteRepositorio.cs" />
     <Compile Include="Repositorio\UsuarioRepositorio.cs" />
     <Compile Include="Repositorio\VideoGameRepositorio.cs" />
   </ItemGroup>
@@ -96,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706091642035_CriandoUsuario.resx">
       <DependentUpon>201706091642035_CriandoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706191523162_AjusteBancoDeDados.resx">
+      <DependentUpon>201706191523162_AjusteBancoDeDados.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

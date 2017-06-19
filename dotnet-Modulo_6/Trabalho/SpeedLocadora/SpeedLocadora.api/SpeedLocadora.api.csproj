@@ -104,6 +104,7 @@
     <Compile Include="App_Start\BasicAuthorizationAttribute.cs" />
     <Compile Include="App_Start\ErrosGlobaisFilterAttribute.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AcessoriosController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\ControllerBasica.cs" />
     <Compile Include="Controllers\LocacaoController.cs" />

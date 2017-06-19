@@ -3,24 +3,6 @@
     padding:0;
 }
 
-body{
-    background-image: url("https://biosom.com.br/blog/wp-content/uploads/2015/12/games_of_2012_wallpaper_by_kiritio-d5otwn8.jpg");
-    width: 100%;
-
-}
-
-h1{
-    padding: 10px;
-    margin: 0;
-    left: 50%;
-    background-color: lightsteelblue;
-    opacity: 0.8;
-    font-variant: small-caps;
-    text-align: center;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    position: absolute;
-}
 .container{ 
     padding: 20px 30px; 
     border-radius: 10pt; 
@@ -58,7 +40,6 @@ a:link, a:visited {
     display: inline-block;
     opacity: 0.8;
 }
-
 
 a:hover, a:active {
     background-color: grey;

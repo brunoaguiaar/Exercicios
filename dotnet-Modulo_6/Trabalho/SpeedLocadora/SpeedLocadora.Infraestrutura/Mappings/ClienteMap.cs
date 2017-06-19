@@ -15,6 +15,8 @@ namespace SpeedLocadora.Infraestrutura.Mappings
             ToTable("Clientes");
 
             HasKey(x => x.IdCliente);
+
+            Property(x => x.IdCliente);
         }
     }
 }
