@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Dominio.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace Dominio.Entidades
+namespace SpeedLocadora.api.Models
 {
-    public class Locacao
+    public class RegistrarLocacaoModel
     {
         public int IdLocacao { get; set; }
         public DateTime DataLocacao { get; set; }
@@ -19,19 +19,5 @@ namespace Dominio.Entidades
         public Usuario Usuario { get; set; }
         public Cliente Cliente { get; set; }
         public virtual List<LocacaoAcessorio> Acessorios { get; set; }
-
-        public Locacao()
-        { }
-
-        public Locacao(Cliente cliente, Usuario usuario, VideoGame videoGame, DateTime dataEntrega, DateTime dataLocacao, PacoteAcessorio pacoteAcessorios, double precoPrevisto)
-        {
-            Cliente = cliente;
-            VideoGame = videoGame;
-            DataEntrega = dataEntrega;
-            DataLocacao = dataLocacao;
-            PacoteAcessorios = pacoteAcessorios;
-            PrecoPrevisto = precoPrevisto;
-            Usuario = usuario;
-        }
     }
 }

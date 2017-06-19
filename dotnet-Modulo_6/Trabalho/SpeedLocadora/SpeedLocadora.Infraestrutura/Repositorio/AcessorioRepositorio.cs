@@ -41,6 +41,9 @@ namespace SpeedLocadora.Infraestrutura.Repositorio
             return contexto.Acessorios.Where(u => u.IdAcessorio == id).FirstOrDefault();
         }
 
-
+        public List<Acessorio> ListarDisponiveis()
+        {
+            return contexto.Acessorios.Where(x => x.Quantidade > 0).ToList();
+        }
     }
 }

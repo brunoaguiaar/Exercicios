@@ -21,6 +21,8 @@ namespace SpeedLocadora.Infraestrutura
         public DbSet<Permissao> Permissoes { get; set; }
         public DbSet<Locacao> Locacoes { get; set; }
         public DbSet<Pacote> Pacotes { get; set; }
+        public DbSet<PacoteAcessorio> PacoteAcessorios { get; set; }
+        public DbSet<LocacaoAcessorio> LocacaoAcessorios { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -32,6 +34,8 @@ namespace SpeedLocadora.Infraestrutura
             modelBuilder.Configurations.Add(new PermissaoMap());
             modelBuilder.Configurations.Add(new LocacaoMap());
             modelBuilder.Configurations.Add(new PacoteMap());
+            modelBuilder.Configurations.Add(new PacoteAcessorioMap());
+            modelBuilder.Configurations.Add(new LocacaoAcessorioMap());
         }
 
     }

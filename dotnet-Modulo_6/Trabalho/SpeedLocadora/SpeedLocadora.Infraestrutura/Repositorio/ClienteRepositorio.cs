@@ -26,22 +26,11 @@ namespace SpeedLocadora.Infraestrutura.Repositorio
             return contexto.Clientes.Where(x => x.CPF == cpf).FirstOrDefault();
         }
 
-        public List<Locacao> ObterLocacoes(string cpf)
-        {
-            var locacoes = contexto.Locacoes.Where(x => x.Cliente.CPF == cpf).ToList();
-
-            locacoes.ForEach(x => {
-                x.Cliente = ObterPorCpf(x.Cliente.CPF);
-            });
-
-            return locacoes;
-        }
-
         public Cliente Adicionar(Cliente cliente)
         {
             contexto.Clientes.Add(cliente);
             contexto.SaveChanges();
-            return cliente;
+            return ObterPorCpf(cliente.CPF);
         }
 
         public void Deletar(int Id)
