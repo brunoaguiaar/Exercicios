@@ -346,3 +346,4 @@ nbdist/
 .nb-gradle/
 
 # End of https://www.gitignore.io/api/java,maven,netbeans
+/Modulo_8/aula1/nbproject/

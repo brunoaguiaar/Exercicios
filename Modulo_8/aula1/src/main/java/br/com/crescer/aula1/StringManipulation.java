@@ -5,19 +5,11 @@ import java.text.Normalizer;
 public class StringManipulation implements StringUtils{
     
     public boolean isEmpty(String string) {
-         if (string.isEmpty() == false && string.trim().length()>0){
-             return false;
-         }
-         else{
-             return true;
-         }   
+         return string == null || string.trim().isEmpty();
     }
 
     public String inverter(String string) {
-        if (this.isEmpty(string) == false){
-            return new StringBuilder(string).reverse().toString();
-        }
-        else return "Não foi possível inverter.";
+        return new StringBuilder(string).reverse().toString();
     }
 
     public int contaVogais(String string) {
@@ -34,18 +26,10 @@ public class StringManipulation implements StringUtils{
     }
 
     public boolean isPalindromo(String string) {
-        String palavraInvertida;
-        palavraInvertida = new StringBuilder(string).reverse().toString().trim();
-        palavraInvertida = normalize(palavraInvertida);
-        
-        string = normalize(string);
-        
-        if(string.trim() == palavraInvertida){
-            return true;
-        }
-        else{
-            return false;
-        }
+        string = string.replaceAll(" ", "");
+        string = string.toUpperCase();
+        String stringInvertida = inverter(string);
+        return string.equals(stringInvertida);        
     }
     
     private static String normalize(String nome) {
