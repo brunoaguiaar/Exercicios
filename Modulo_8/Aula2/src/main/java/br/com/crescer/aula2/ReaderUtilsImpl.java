@@ -29,7 +29,7 @@ public class ReaderUtilsImpl implements ReaderUtils{
       
       final StringBuilder sb = new StringBuilder();
       
-      bufferReader.lines().forEach(l -> sb.append(l + "\n"));
+      bufferReader.lines().forEach(l -> sb.append(l).append("\n"));
       
       return sb.toString();
       

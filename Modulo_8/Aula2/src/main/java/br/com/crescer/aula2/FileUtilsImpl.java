@@ -15,8 +15,8 @@ public class FileUtilsImpl implements FileUtils{
     
     @Override
     public boolean mk(String string) {
-        try {
-        file = new File(string);
+      try {
+      file = new File(string);
       if(isFile(string)){
         return file.createNewFile();
       } else
@@ -29,7 +29,7 @@ public class FileUtilsImpl implements FileUtils{
 
     @Override
     public boolean rm(String string) {
-        if(isDirectory(string)) {
+      if(isDirectory(string)) {
       try {
         throw new Exception("Arquivo inválido.");
       } catch (Exception ex) {
@@ -42,10 +42,10 @@ public class FileUtilsImpl implements FileUtils{
 
     @Override
     public String ls(String string) {
-        if(isDirectory(string)){
+      if(isDirectory(string)){
       StringBuilder sb = new StringBuilder();
       for(File f : new File(string).listFiles())
-        sb.append(f.getName() + " ");
+        sb.append(f.getName()).append(" ");
       
       return sb.toString();
     } else
@@ -54,7 +54,7 @@ public class FileUtilsImpl implements FileUtils{
 
     @Override
     public boolean mv(String in, String out) {
-        try {
+      try {
       if(isDirectory(in)) {
         throw new Exception("Arquivo inválido.");
       }

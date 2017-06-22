@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 public class WriterUtilsImpl implements WriterUtils{
 
     private File file;
+    
     @Override
     public void write(String stringFile, String conteudo) {
         file = new File(stringFile);
