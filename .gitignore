@@ -348,3 +348,4 @@ nbdist/
 # End of https://www.gitignore.io/api/java,maven,netbeans
 /Modulo_8/aula1/nbproject/
 /Modulo_8/Aula2/nbproject/
+/Modulo_8/Aula4/nbproject/private/
