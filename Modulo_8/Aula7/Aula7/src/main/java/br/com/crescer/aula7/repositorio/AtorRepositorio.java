@@ -8,5 +8,5 @@ import org.springframework.data.repository.CrudRepository;
  * @author bruno.aguiar
  */
 public interface AtorRepositorio extends CrudRepository<Ator, Long> {
-    
+    public Ator findById(Long id);
 }
