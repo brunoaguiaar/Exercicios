@@ -3,6 +3,7 @@ package br.com.crescer.redesocial.Service;
 import br.com.crescer.redesocial.Entity.Usuario;
 import br.com.crescer.redesocial.Repositorio.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,6 +22,7 @@ public class UsuarioService {
     }
     
     public Usuario cadastrar(Usuario u){
+        u.setSenha(new BCryptPasswordEncoder().encode(u.getSenha()));
         return repositorio.save(u);
     }
     
@@ -30,5 +32,9 @@ public class UsuarioService {
     
     public Usuario buscarPorNome(String nome){
         return repositorio.findByNome(nome);
+    }
+    
+    public Usuario buscarPorEmail(String email){
+        return repositorio.findByEmail(email);
     }
 }

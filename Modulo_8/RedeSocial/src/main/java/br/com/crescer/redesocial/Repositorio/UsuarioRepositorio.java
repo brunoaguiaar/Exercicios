@@ -11,4 +11,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface UsuarioRepositorio extends CrudRepository<Usuario, String> {
 
     public Usuario findByNome(String nome);
+    public Usuario findByEmail(String email);
+    
 }

@@ -29,7 +29,7 @@ public class UsuarioController {
         return service.listar();
     }
     
-    @PostMapping
+    @PostMapping(value = "/api/usuario")
     public Usuario cadastrarUsuario(@RequestBody Usuario usuario){
         service.cadastrar(usuario);
         return usuario;
@@ -50,6 +50,11 @@ public class UsuarioController {
     @GetMapping(value="/{nome}")
     public Usuario buscarUsuarioPorNome(@PathVariable("nome") String nome){
         return service.buscarPorNome(nome);
+    }
+    
+    @GetMapping(value="/{email}")
+    public Usuario buscarUsuarioPorEmail(@PathVariable("email") String email){
+        return service.buscarPorEmail(email);
     }
 }
 
