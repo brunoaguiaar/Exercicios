@@ -9,11 +9,14 @@ import br.com.crescer.redesocial.Entity.Curtida;
 import br.com.crescer.redesocial.Repositorio.CurtidaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Bruno
  */
+
+@Service
 public class CurtidaService {
     
     @Autowired

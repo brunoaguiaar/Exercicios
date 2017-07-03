@@ -2,10 +2,8 @@ package br.com.crescer.redesocial.Service;
 
 import br.com.crescer.redesocial.Entity.Usuario;
 import br.com.crescer.redesocial.Repositorio.UsuarioRepositorio;
-import java.awt.print.Pageable;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,38 +16,38 @@ import org.springframework.stereotype.Service;
 public class UsuarioService {
     
     @Autowired
-    UsuarioRepositorio repositorio;
+    private UsuarioRepositorio usuarioRepositorio;
     
     public Iterable<Usuario> listar(){
-        return repositorio.findAll();
+        return usuarioRepositorio.findAll();
     }
     
-    public Page<Usuario> findAll(Pageable pageable) {
-        return repositorio.findAll(pageable);
-    }
+//    public Page<Usuario> findAll(Pageable pageable) {
+//        return usuarioRepositorio.findAll(pageable);
+//    }
     
     public Usuario findById(Long id) {
-        return repositorio.findOne(id);
+        return usuarioRepositorio.findOne(id);
     }
     
     public Usuario cadastrar(Usuario u)throws Exception {
         if (buscarPorEmail(u.getEmail()) != null) {
-            throw new Exception("Email já cadastrado no 4Likes");
+            throw new Exception("Email já cadastrado!");
         }
         u.setSenha(new BCryptPasswordEncoder().encode(u.getSenha()));
-        return repositorio.save(u);
+        return usuarioRepositorio.save(u);
     }
     
     public void Excluir(Usuario u){
-        repositorio.delete(u);
+        usuarioRepositorio.delete(u);
     }
     
-    public List<Usuario> buscarPorNome(String nome){
-        return repositorio.findByNomeContainingIgnoreCase(nome);
+    public Usuario buscarPorNome(String nome){
+        return usuarioRepositorio.findOneByNomeContainingIgnoreCase(nome);
     }
     
     public Usuario update(Usuario usuario) {
-        return repositorio.save(usuario);
+        return usuarioRepositorio.save(usuario);
     }
     
     public void enviarConviteAmizade(Usuario solicitante, Usuario requisitado) {
@@ -66,6 +64,6 @@ public class UsuarioService {
     }
     
     public Usuario buscarPorEmail(String email){
-        return repositorio.findByEmail(email);
+        return usuarioRepositorio.findByEmail(email);
     }
 }

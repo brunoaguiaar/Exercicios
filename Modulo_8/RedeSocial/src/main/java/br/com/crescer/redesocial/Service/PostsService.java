@@ -3,11 +3,9 @@ package br.com.crescer.redesocial.Service;
 import br.com.crescer.redesocial.Entity.Post;
 import br.com.crescer.redesocial.Entity.Usuario;
 import br.com.crescer.redesocial.Repositorio.PostsRepositorio;
-import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
@@ -28,9 +26,9 @@ public class PostsService {
         return repositorio.findAll();
     }
     
-    public Page<Post> findAll(Pageable pageable) {
-        return repositorio.findAll(pageable);
-    }
+//    public Page<Post> findAll(Pageable pageable) {
+//        return repositorio.findAll(pageable);
+//    }
     
     public Post findById(Long id) {
         return repositorio.findOne(id);
@@ -46,10 +44,10 @@ public class PostsService {
         repositorio.delete(id);
     }
     
-    public List<Post> getFeedPosts(User user, Pageable pageable) {
-        Set<Usuario> amigos = 
-                (Set<Usuario>)service.buscarPorEmail(user.getUsername()).getAmigos();
-        return repositorio.findByUsuarioInOrder(amigos, pageable);
+    public List<Post> getFeedPosts(User user) {
+        List<Usuario> amigos = 
+                service.buscarPorEmail(user.getUsername()).getAmigos();
+        return repositorio.findByUsuarioInOrderByIdDesc(amigos);
     }
     
     public List<Post> getPostsByIdUsuario(Long id) {

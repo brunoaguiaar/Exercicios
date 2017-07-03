@@ -2,7 +2,6 @@ package br.com.crescer.redesocial.Controller;
 
 import br.com.crescer.redesocial.Entity.Post;
 import br.com.crescer.redesocial.Service.PostsService;
-import java.awt.print.Pageable;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -38,7 +37,7 @@ public class PostsController {
     }
     
     @GetMapping(value = "/feed")
-    public List<Post> getFeedPosts(@AuthenticationPrincipal User user, Pageable pageable) {
-        return service.getFeedPosts(user, pageable);
+    public List<Post> getFeedPosts(@AuthenticationPrincipal User user) {
+        return service.getFeedPosts(user);
     }
 }

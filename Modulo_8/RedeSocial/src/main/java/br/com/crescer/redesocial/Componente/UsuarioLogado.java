@@ -1,4 +1,6 @@
-package Componente;
+package br.com.crescer.redesocial.Componente;
+
+;
 
 import br.com.crescer.redesocial.Entity.Usuario;
 import br.com.crescer.redesocial.Service.UsuarioService;
@@ -9,6 +11,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+
 
 /**
  *

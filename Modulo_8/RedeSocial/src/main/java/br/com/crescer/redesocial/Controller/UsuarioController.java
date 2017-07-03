@@ -5,8 +5,10 @@ import br.com.crescer.redesocial.Service.UsuarioService;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,7 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -30,11 +31,6 @@ public class UsuarioController {
     
     @Autowired
     UsuarioService service;
-    
-    @GetMapping
-    public List<Usuario> listarUsuarios(){
-        return (List)service.listar();
-    }
     
     @GetMapping(value = "/{id}")
     public Usuario getUsuario(@PathVariable Long id) {
@@ -61,28 +57,34 @@ public class UsuarioController {
         service.aceitarConviteAmizade(usuarioLogado, usuarioAceitar);
     }
     
-    @DeleteMapping
+    @DeleteMapping(value = "/deletar")
     public Usuario deletarUsuario(@RequestBody Usuario usuario){
         service.Excluir(usuario);
         return usuario;
     }
     
-    @PutMapping
+    @PutMapping(value = "/editar")
     public Usuario editarUsuario(@RequestBody Usuario usuario) throws Exception{
-        service.cadastrar(usuario);
+        service.update(usuario);
         return usuario;
     }
     
-    @PutMapping
-    public void updateUsuario(@RequestBody Usuario usuario) {
-        service.update(usuario);
-    }
-    
     @GetMapping(value = "/amigos")
-    public Set<Usuario> getAmigosUsuario(@AuthenticationPrincipal User user) {
-        return (Set<Usuario>) service.buscarPorEmail(user.getUsername()).getAmigos();
+    public List<Usuario> getAmigosUsuario(@AuthenticationPrincipal User user) {
+        return service.buscarPorEmail(user.getUsername()).getAmigos();
     }
     
+    @GetMapping
+    public Map<String, Object> listarUsuarios(Authentication authentication) {
+        User u = Optional.ofNullable(authentication)
+                .map(Authentication::getPrincipal)
+                .map(User.class::cast)
+                .orElse(null);
+        final HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("dados", u);
+        return hashMap;
+    }
+  
     @GetMapping(value = "/convites")
     public Set<Usuario> getConvites(@AuthenticationPrincipal User user) {
         return (Set<Usuario>) service.buscarPorEmail(user.getUsername()).getConvites();
@@ -93,11 +95,6 @@ public class UsuarioController {
         return (Set<Usuario>) service.findById(id).getAmigos();
     }
     
-    @GetMapping(value = "/name")
-    public List<Usuario> getUsuariosByName(@RequestParam String nome) {
-        return service.buscarPorNome("%" + nome + "%");
-    }
-    
     @GetMapping("/usuarioLogado")
     public Map<String, Usuario> listarUsuarios(@AuthenticationPrincipal User user) {
         final Map<String, Usuario> hashMap = new HashMap<>();
@@ -105,12 +102,12 @@ public class UsuarioController {
         return hashMap;
     }
     
-    @GetMapping(value="/{nome}")
+    @GetMapping(value = "/nome/{nome}")
     public Usuario buscarUsuarioPorNome(@PathVariable("nome") String nome){
         return (Usuario) service.buscarPorNome(nome);
     }
     
-    @GetMapping(value="/{email}")
+    @GetMapping(value = "/email/{email}")
     public Usuario buscarUsuarioPorEmail(@PathVariable("email") String email){
         return service.buscarPorEmail(email);
     }

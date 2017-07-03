@@ -1,6 +1,7 @@
 package br.com.crescer.redesocial.Entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -36,6 +38,9 @@ public class Post implements Serializable{
     @Basic(optional = false)
     @Column(name = "TITULO_POST")
     private String tituloPost;
+    
+    @OneToMany(mappedBy = "post")
+    private List<Curtida> curtidas;
 
     public Long getId() {
         return id;
@@ -61,4 +66,11 @@ public class Post implements Serializable{
         this.tituloPost = tituloPost;
     }
        
+    public List<Curtida> getCurtidas() {
+        return curtidas;
+    }
+
+    public void setCurtidas(List<Curtida> curtidas) {
+        this.curtidas = curtidas;
+    }
 }

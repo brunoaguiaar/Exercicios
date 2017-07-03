@@ -47,8 +47,12 @@ public class Usuario implements Serializable{
     private String senha;
     
     @Basic(optional = false)
-    @Column(name = "SEXO")
-    private String sexo;
+    @Column(name = "CAMPEONATO")
+    private String campeonato;
+    
+    @Basic(optional = false)
+    @Column(name = "ANO_FUNDACAO")
+    private int ano_fundacao;
     
     @JsonIgnore
     @OneToMany(mappedBy = "usuario")
@@ -94,12 +98,12 @@ public class Usuario implements Serializable{
         this.senha = senha;
     }
 
-    public String getSexo(){
-        return sexo;
+    public String getCampeonato(){
+        return campeonato;
     }
     
-    public void setSexo(String sexo){
-        this.sexo = sexo;
+    public void setCampeonato(String campeonato){
+        this.campeonato = campeonato;
     }
     
     public List<Post> getPosts() {
@@ -129,6 +133,14 @@ public class Usuario implements Serializable{
     @Override
     public boolean equals(Object user) {
         return this.id.equals(((Usuario)user).id);
+    }
+    
+    public int getAno_fundacao() {
+        return ano_fundacao;
+    }
+
+    public void setAno_fundacao(int ano_fundacao) {
+        this.ano_fundacao = ano_fundacao;
     }
     
 }
