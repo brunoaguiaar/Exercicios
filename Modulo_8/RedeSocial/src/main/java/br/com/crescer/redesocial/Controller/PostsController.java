@@ -2,11 +2,14 @@ package br.com.crescer.redesocial.Controller;
 
 import br.com.crescer.redesocial.Entity.Post;
 import br.com.crescer.redesocial.Service.PostsService;
+import java.awt.print.Pageable;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,33 +20,25 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping(value="/Post")
+@RequestMapping(value="/post")
 public class PostsController {
     
     @Autowired
     PostsService service;
     
-    @GetMapping
-    public Iterable<Post> listarPostsDoUsuarios(){
-        return service.listarPostsDoUsuario();
+    @GetMapping(value = "/{id}")
+     public List<Post> getPostsByUser(@PathVariable Long id) {
+        return service.getPostsByIdUsuario(id);
     }
     
     @PostMapping
-    public Post cadastrarPost(@RequestBody Post post){
-        service.cadastrarPost(post);
+    public Post cadastrarPost(@RequestBody Post post, @AuthenticationPrincipal User user){
+        service.cadastrarPost(post, user);
         return post;
     }
     
-    @DeleteMapping
-    public Post deletarUsuario(@RequestBody Post post){
-        service.excluirPost(post);
-        return post;
+    @GetMapping(value = "/feed")
+    public List<Post> getFeedPosts(@AuthenticationPrincipal User user, Pageable pageable) {
+        return service.getFeedPosts(user, pageable);
     }
-    
-    @PutMapping
-    public Post editarPost(@RequestBody Post post){
-        service.cadastrarPost(post);
-        return post;
-    }
-    
 }
